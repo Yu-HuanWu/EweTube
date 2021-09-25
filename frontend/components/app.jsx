@@ -9,7 +9,7 @@ const App = ()=> (
             <h1>EweTube</h1>
         </header>
         <SignupFormContainer/>
-        {console.log("test")}
+        {console.log("hi")}
         <Route path="/signup" component={SignupFormContainer} />
         <Route path="/login" component={LoginFormContainer} />
     </div>
