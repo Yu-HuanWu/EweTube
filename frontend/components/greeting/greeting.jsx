@@ -4,8 +4,10 @@ import { Link } from "react-router-dom";
 const Greeting = ({ user, logout }) => {
     if (user) {
         return (
-            <div>
-                <p className="user-avatar">{user.username[0].toUpperCase()}</p>
+            <div className="greeting">
+                <div>
+                    <p className="user-avatar">{user.username[0].toUpperCase()}</p>
+                </div>
                 <button onClick={logout}>Log Out</button>
             </div>
         )
