@@ -30,11 +30,27 @@
     }
 
     .login {
+        display: flex;
+        justify-content: center;
+        align-items: center;
         border: 1px solid #3ea6ff;
+        font-family: Arial, Helvetica, sans-serif;
         color: #3ea6ff;
         padding: 5px 11px;
         text-align: center;
     }
+
+    .login img {
+        height: 28px;
+        padding-right: 10px;
+    }
+
+    .login-text {
+        text-decoration: none;
+        font-family: Arial, Helvetica, sans-serif;
+        color: #3ea6ff;
+    }
+
 
     .greeting {
         display: flex;

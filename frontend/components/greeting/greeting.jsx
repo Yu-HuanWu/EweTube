@@ -15,7 +15,10 @@ const Greeting = ({ user, logout }) => {
         return (
             <div>
                 <Link className="button" to="/signup">Sign Up</Link>
-                <Link className="login" to="/login">Log In </Link>
+                <div className="login">
+                    <img src={window.loginURL} />
+                    <Link className="login-text" to="/login">Log In </Link>
+                </div>
             </div>
         )
     }
