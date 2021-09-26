@@ -18,3 +18,27 @@
         background-color: #181818;
         color: #aaa;
     }
+
+    header {
+        height: 56px;
+        padding: 0 16px;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        background-color: rgba(33, 33, 33, 0.95);
+    }
+
+    .login {
+        border: 1px solid #3ea6ff;
+        color: #3ea6ff;
+        padding: 5px 11px;
+        text-align: center;
+    }
+
+    .user-avatar {
+        border-radius: 100px;
+        background: rgb(22, 199, 161);
+        color : white;
+        padding : 10px 10px;
+    }
