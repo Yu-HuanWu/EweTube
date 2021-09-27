@@ -25,34 +25,45 @@ class SessionForm extends React.Component {
 
     render() {
         let otherLink;
-        if (this.props.formType === "login") {
-            otherLink = <Link to="/signup">Sign Up</Link>
+        if (this.props.formType === "Login") {
+            otherLink = <Link to="/signup">Create account</Link>
         } else {
-            otherLink = <Link to="/login">Login</Link>
+            otherLink = <Link to="/login">Already have an account?</Link>
         };
 
         return (
-            <div>
-                <h3>{this.props.formType} or {otherLink}</h3>
-                <form onSubmit={this.handleSubmit}>
-                    <label>Username:
-                        <input
-                            type="text"
-                            value={this.state.username}
-                            onChange={this.update("username")}>
-                        </input>
-                    </label>
+            <div className="session-form">
+                <div className="form-box">
+                    <img src={window.logoURL} className="logo" />
                     <br />
-                    <label>Password:
-                        <input
-                            type="password"
-                            value={this.state.password}
-                            onChange={this.update("password")}>
-                        </input>
-                    </label>
+                    <h1>{this.props.formType}</h1>
+                    <p>to continue to EweTube</p>
                     <br />
-                    <button type="submit">{this.props.formType}</button>
-                </form>
+                    <form onSubmit={this.handleSubmit}>
+                        <label>
+                            <input
+                                type="text"
+                                value={this.state.username}
+                                placeholder= "Username"
+                                onChange={this.update("username")}>
+                            </input>
+                        </label>
+                        <br />
+                        <label>
+                            <input
+                                type="password"
+                                value={this.state.password}
+                                placeholder= "Password"
+                                onChange={this.update("password")}>
+                            </input>
+                        </label>
+                        <br />
+                        <div className="form-box-bottom">
+                            <div className="otherLink">{otherLink}</div>
+                            <button type="submit">{this.props.formType}</button>
+                        </div>
+                    </form>
+                </div>
             </div>
         )
     }

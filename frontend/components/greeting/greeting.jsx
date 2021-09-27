@@ -14,7 +14,7 @@ const Greeting = ({ user, logout }) => {
     } else {
         return (
             <div>
-                <Link className="button" to="/signup">Sign Up</Link>
+                {/* <Link className="button" to="/signup">Sign Up</Link> */}
                 <div className="login">
                     <img src={window.loginURL} />
                     <Link className="login-text" to="/login">Log In </Link>
