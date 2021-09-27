@@ -15,10 +15,11 @@ const Greeting = ({ user, logout }) => {
         return (
             <div>
                 {/* <Link className="button" to="/signup">Sign Up</Link> */}
-                <div className="login">
-                    <img src={window.loginURL} />
-                    <Link className="login-text" to="/login">Log In </Link>
-                </div>
+                    <Link className="login-text" to="/login">
+                        <div className="login">
+                            <img src={window.loginURL} />Log In 
+                        </div>
+                    </Link>
             </div>
         )
     }
