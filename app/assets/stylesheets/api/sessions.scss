@@ -90,11 +90,22 @@
 }
 
 .form-box-bottom> .otherLink {
+
+}
+
+.form-box-bottom> .otherLink:hover {
+    text-decoration: none;
+    text-shadow: 5px 5px 10px lightblue;
+    color: #1562c7;
+}
+
+.otherLinklinks {
+    text-decoration: none;
     position: absolute;
     color: #1a73e8;
     font-family: "Google Sans",Roboto,Arial,sans-serif;
     font-size: .875rem;
     letter-spacing: .0107142857em;
     font-weight: 500;
-    text-decoration: none;
+    margin-top: -2%;
 }

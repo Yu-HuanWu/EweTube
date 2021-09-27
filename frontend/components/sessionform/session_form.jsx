@@ -26,9 +26,9 @@ class SessionForm extends React.Component {
     render() {
         let otherLink;
         if (this.props.formType === "Login") {
-            otherLink = <Link to="/signup">Create account</Link>
+            otherLink = <Link to="/signup"><p className="otherLinklinks">Create account</p></Link>
         } else {
-            otherLink = <Link to="/login">Already have an account?</Link>
+            otherLink = <Link to="/login"><p className="otherLinklinks">Already have an account?</p></Link>
         };
 
         return (
