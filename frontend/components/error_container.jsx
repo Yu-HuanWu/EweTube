@@ -8,7 +8,7 @@ class ErrorContainer extends React.Component{
                 <Link to="/"><img src={window.errorURL} alt="baaaaad site"/></Link>
                 <br />
                 <p>This page isn't available. Sorry about that.</p>
-                <p>Click the sheep to go back to home page.</p>
+                <p>Click on the sheep to go back to the home page.</p>
             </div>
         )
     }

@@ -8,19 +8,53 @@ class SessionForm extends React.Component {
             username: "",
             password: ""
         };
-        this.handleSubmit = this.handleSubmit.bind(this)
+        this.handleSubmit = this.handleSubmit.bind(this);
+        this.demoLogin= this.demoLogin.bind(this);
     }
 
     handleSubmit(e) {
         e.preventDefault();
         const user = Object.assign({}, this.state);
-        this.props.processForm(user);
+        this.props.processForm(user).then(
+            () => this.props.history.push("/")
+        ).fail(() => this.setState({ errors: this.props.errors }))
     }
 
     update(field) {
         return (e) => {
             this.setState({ [field]: e.target.value })
         }
+    }
+
+    demoLogin(e) {
+        e.preventDefault();
+        const demo= { username: "Demo McDemoface", password: "DemoUserPassword"};
+
+        const usernameAnimate = setInterval(()=> {
+            if (this.state.username !== demo.username) {
+            const temp = demo.username.slice(0, this.state.username.length +1);
+            this.setState({ username: temp });
+        } else {
+            clearInterval(usernameAnimate);
+            passwordAnimate();
+        }}, 100);
+
+        const passwordAnimate = () =>{
+            setInterval(() => {
+            if (this.state.password !== demo.password ) {
+                const temp = demo.password.slice(0, this.state.password.length + 1);
+                this.setState({ password: temp });
+            } else {
+                clearInterval(passwordAnimate);
+            }
+        }, 100);
+    }
+    }
+
+    renderDemo(){
+        return(
+            <input type="submit" onClick={this.demoLogin} value="Demo Login" />
+        )
     }
 
     render() {
@@ -34,7 +68,7 @@ class SessionForm extends React.Component {
         return (
             <div className="session-form">
                 <div className="form-box">
-                    <img src={window.logoURL} className="logo" />
+                    <Link to="/"><img src={window.logoblackURL} className="logo" /></Link>
                     <br />
                     <h1>{this.props.formType}</h1>
                     <p>to continue to EweTube</p>
@@ -58,6 +92,8 @@ class SessionForm extends React.Component {
                             </input>
                         </label>
                         <br />
+                        <br />
+                            {this.renderDemo()}
                         <div className="form-box-bottom">
                             <div className="otherLink">{otherLink}</div>
                             <button type="submit">{this.props.formType}</button>
