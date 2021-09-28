@@ -76,3 +76,26 @@
         padding: 18px 14px 18px 16px;
     }
 
+.pagenotfound{
+    background: #f1f1f1;
+    width: 100%;
+    min-height: 100vh;
+    height: 100vh;
+    margin-top: -10px;
+    margin-left: -10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.pagenotfound img {
+    margin: 0 auto;
+    width: 500px;
+}
+
+.pagenotfound > p {
+    color: #333;
+    font: 16px "YouTube Noto",Roboto,arial,sans-serif;
+    margin: 2px;
+}
