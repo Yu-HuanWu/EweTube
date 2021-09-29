@@ -6,26 +6,36 @@ class SessionForm extends React.Component {
         super(props);
         this.state = {
             username: "",
-            password: ""
+            password: "",
+            errors: []
         };
         this.handleSubmit = this.handleSubmit.bind(this);
         this.demoLogin= this.demoLogin.bind(this);
+        this.renderDemo= this.renderDemo.bind(this);
     }
 
     handleSubmit(e) {
         e.preventDefault();
         const user = Object.assign({}, this.state);
-        this.props.processForm(user).then(
-            () => this.props.history.push("/")
-        ).fail(() => this.setState({ errors: this.props.errors }))
+        this.props.processForm(user).fail(() => this.setState({ errors: this.props.errors }))
     }
 
     update(field) {
         return (e) => {
-            this.setState({ [field]: e.target.value })
+            this.setState({ [field]: e.currentTarget.value })
         }
     }
 
+    renderDemo(){
+        // e.preventDefault();
+        if (this.props.formType=== "Login"){
+            return(
+                <input type="submit" onClick={this.demoLogin} value="Demo Login" />
+                )
+            } 
+        // setTimeout(this.props.processForm({ username: "Demo McDemoface", password: "DemoUserPassword" }), 5000);
+    }
+    
     demoLogin(e) {
         e.preventDefault();
         const demo= { username: "Demo McDemoface", password: "DemoUserPassword"};
@@ -40,22 +50,19 @@ class SessionForm extends React.Component {
         }}, 100);
 
         const passwordAnimate = () =>{
-            setInterval(() => {
-            if (this.state.password !== demo.password ) {
-                const temp = demo.password.slice(0, this.state.password.length + 1);
-                this.setState({ password: temp });
-            } else {
-                clearInterval(passwordAnimate);
-            }
-        }, 100);
-    }
+            const processLogin= setInterval(() => {
+                if (this.state.password !== demo.password ) {
+                    const temp = demo.password.slice(0, this.state.password.length + 1);
+                    this.setState({ password: temp });
+                } else {
+                    clearInterval(processLogin);
+                    this.props.processForm(demo);
+                }
+            }, 100);
+        };
+        this.handleSubmit;
     }
 
-    renderDemo(){
-        return(
-            <input type="submit" onClick={this.demoLogin} value="Demo Login" />
-        )
-    }
 
     render() {
         let otherLink;
@@ -64,6 +71,10 @@ class SessionForm extends React.Component {
         } else {
             otherLink = <Link to="/login"><p className="otherLinklinks">Already have an account?</p></Link>
         };
+
+        let errors = this.state.errors.map((el, idx) => {
+            return <li key={idx}>{el}</li>
+        })
 
         return (
             <div className="session-form">
@@ -91,6 +102,7 @@ class SessionForm extends React.Component {
                                 onChange={this.update("password")}>
                             </input>
                         </label>
+                        {errors}
                         <br />
                         <br />
                             {this.renderDemo()}
@@ -103,7 +115,6 @@ class SessionForm extends React.Component {
             </div>
         )
     }
-
 }
 
 export default SessionForm;
