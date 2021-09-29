@@ -1,4 +1,4 @@
-json.extract! video, :id, :title, :description, :user_id, :uploader_id
+json.extract! video, :id, :title, :description, :user_id, :views
 
 json.user video.user.username
 json.videoUrl url_for(video.uploaded_video)
