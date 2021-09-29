@@ -92,6 +92,14 @@
 .pagenotfound img {
     margin: 0 auto;
     width: 500px;
+    -webkit-transition: width 0.6s ease-out;
+    -moz-transition: width 0.6s ease-out;
+    transition: width 0.6s ease-out;
+}
+
+.pagenotfound img:hover {
+    margin: 0 auto;
+    width: 520px;
 }
 
 .pagenotfound > p {

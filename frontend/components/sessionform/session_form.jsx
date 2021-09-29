@@ -17,7 +17,7 @@ class SessionForm extends React.Component {
     handleSubmit(e) {
         e.preventDefault();
         const user = Object.assign({}, this.state);
-        this.props.processForm(user).fail(() => this.setState({ errors: this.props.errors }))
+        this.props.processForm(user).fail(() => this.setState({ errors: this.props.errors }));
     }
 
     update(field) {
@@ -26,14 +26,13 @@ class SessionForm extends React.Component {
         }
     }
 
-    renderDemo(){
-        // e.preventDefault();
+    renderDemo(e){
+
         if (this.props.formType=== "Login"){
             return(
                 <input type="submit" onClick={this.demoLogin} value="Demo Login" />
-                )
-            } 
-        // setTimeout(this.props.processForm({ username: "Demo McDemoface", password: "DemoUserPassword" }), 5000);
+            )
+        } 
     }
     
     demoLogin(e) {
@@ -60,7 +59,6 @@ class SessionForm extends React.Component {
                 }
             }, 100);
         };
-        this.handleSubmit;
     }
 
 
