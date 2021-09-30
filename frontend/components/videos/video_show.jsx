@@ -9,8 +9,6 @@ class VideoShow extends React.Component {
     }
 
     componentDidMount() {
-        console.log("testing")
-        console.log(this.props.match.params.videoId)
         this.props.fetchVideo(this.props.match.params.videoId);
     }
 
