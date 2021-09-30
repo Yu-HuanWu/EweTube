@@ -7,10 +7,12 @@ import { Route, Switch } from 'react-router-dom';
 import { AuthRoute, ProtectedRoute } from '../util/route_utils';
 import { Link } from 'react-router-dom';
 import NavBar from './navbar';
+import VideoShowContainer from './videos/video_show_container';
 
 const App = ()=> (
     <div className="body">
         <Switch>
+            <Route exact path="/videos/:videoId" component={VideoShowContainer}/>
             <AuthRoute exact path="/signup" component={SignupFormContainer} />
             <AuthRoute exact path="/login" component={LoginFormContainer} />
             <Route exact path="/" component={NavBar} />
