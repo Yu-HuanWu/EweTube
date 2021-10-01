@@ -11,12 +11,15 @@ import VideoShow from './video_show';
 const mapStateToProps = (state, ownProps) => {
     return({
         video: state.entities.videos[ownProps.match.params.videoId],
+        errors: state.errors.video,
     })
 }
 
 
-const mapDispatchToProps = (dispatch) => ({
-    fetchVideo: (videoId) => dispatch(fetchVideo(videoId)),
-})
+const mapDispatchToProps = (dispatch) => {
+    return({
+         fetchVideo: (videoId) => dispatch(fetchVideo(videoId)),
+    })
+}
 
 export default connect(mapStateToProps, mapDispatchToProps)(VideoShow);

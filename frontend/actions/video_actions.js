@@ -3,7 +3,7 @@ import * as APIUtil from "../util/video_api_util"
 export const RECEIVE_ALL_VIDEOS = 'RECEIVE_ALL_VIDEOS';
 export const RECEIVE_VIDEO = 'RECEIVE_VIDEO';
 export const REMOVE_VIDEO = 'REMOVE_VIDEO';
-export const RECEIVE_VIDEO_ERRORS = "RECEIVE_ERRORS";
+export const RECEIVE_VIDEO_ERRORS = "RECEIVE_VIDEO_ERRORS";
 
 const receiveAllVideos = videos => {
     return {
@@ -26,10 +26,10 @@ const removeVideo = videoId=> {
     }
 }
 
-const receiveErrors = (errors) => {
+const receiveVideoErrors = errors=> {
     return {
         type: RECEIVE_VIDEO_ERRORS,
-        errors
+        errors,
     }
 }
 
@@ -37,7 +37,7 @@ export const createVideo = video => dispatch => (
     APIUtil.createVideo(video).then(video => (
         dispatch(receiveVideo(video))
     ), err => (
-        dispatch(receiveErrors(err.responseJSON))
+        dispatch(receiveVideoErrors(err.responseJSON))
     ))
 )
 
@@ -45,7 +45,7 @@ export const fetchVideo = videoId => dispatch => (
     APIUtil.fetchVideo(videoId).then(video => (
         dispatch(receiveVideo(video))
     ), err => (
-        dispatch(receiveErrors(err.responseJSON))
+        dispatch(receiveVideoErrors(err.responseJSON))
     ))
 )
 
@@ -53,7 +53,7 @@ export const fetchVideos = () => dispatch => (
     APIUtil.fetchVideos().then(videos=>(
         dispatch(receiveAllVideos(videos))
     ), err=> (
-        dispatch(receiveErrors(err.responseJSON))
+        dispatch(receiveVideoErrors(err.responseJSON))
     ))
 )
 
@@ -61,6 +61,6 @@ export const deleteVideo = (videoId) => dispatch => (
     APIUtil.deleteVideo(videoId).then(video=> (
         dispatch(removeVideo(video.id))
     ), err=> (
-        dispatch(receiveErrors(err.responseJSON))
+        dispatch(receiveVideoErrors(err.responseJSON))
     ))
 )

@@ -1,10 +1,15 @@
+
 class Api::VideosController < ApplicationController
 
     before_action :require_logged_in, only: [:create, :update, :destroy]
 
     def show
-        @video= Video.find(params[:id])
-        render :show
+        @video= Video.find_by(id: params[:id])
+        if (@video)
+           render :show
+        else
+            render json: ["badvideo"], status: 422
+        end
     end
 
     def index
