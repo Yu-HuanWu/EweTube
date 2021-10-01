@@ -27,14 +27,13 @@ class VideoShow extends React.Component {
             )
         }
         if (!this.props.video) {
-            console.log(this.props.errors)
             return null;
-        }
-
+        } else { this.props.video.views += 1;}
+        
         return(
             <div>
                 <NavBar/>
-                <div>
+                <div className="video-show">
                     {/* <video 
                     src={this.props.video.videoUrl}
                     height="500"
@@ -46,11 +45,13 @@ class VideoShow extends React.Component {
                         url={this.props.video.videoUrl}
                         light={false}
                         playing= {false}
-                        controls= {true} />
-                    <div>
+                        controls= {true} 
+                        className="video-player"/>
+                    <div className="video-info">
                         <h1>{this.props.video.title}</h1>
-                        <h2>{this.props.video.views} views * {this.props.video.createdAt}</h2>
-                        <h3>{this.props.video.user}</h3>
+                        <h2>{this.props.video.views} views * {this.props.video.createdDate}</h2>
+                        <div className="user-avatar" style={{ backgroundColor: this.props.video.user.color }} >{this.props.video.user.username[0].toUpperCase()}</div>
+                        <h3>{this.props.video.user.username}</h3>
                         <h4>{this.props.video.description}</h4>
                     </div>
                 </div>

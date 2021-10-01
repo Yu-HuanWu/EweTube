@@ -4,6 +4,8 @@ class User < ApplicationRecord
   validates :password, length: { minimum: 6 }, allow_nil: true
   
   attr_reader :password
+
+  before_validation :set_user_color
   after_initialize :ensure_session_token
 
   has_many :videos
@@ -33,4 +35,9 @@ class User < ApplicationRecord
     self.session_token
   end
 
+  def set_user_color
+      colors = ['#AA47BC', '#78909C', '#EC407A', '#5C6BC0', '#0288D1', '#00579C', '#0098A6', '#00887A', '#004C3F', '#689F39', '#33691E', '#8C6E63', '#5D4038', '#EF6C00', '#F5511E', '#BF360C']
+
+      self.color = colors.sample if !attribute_present?("color")
+  end
 end

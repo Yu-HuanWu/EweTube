@@ -6,7 +6,7 @@ const Greeting = ({ user, logout }) => {
         return (
             <div className="greeting">
                 <div>
-                    <p className="user-avatar">{user.username[0].toUpperCase()}</p>
+                    <p className="user-avatar" style={{ backgroundColor: user.color }}>{user.username[0].toUpperCase()}</p>
                 </div>
                 <button onClick={logout}>Log Out</button>
             </div>
