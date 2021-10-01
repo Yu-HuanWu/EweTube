@@ -1,4 +1,5 @@
 import React from 'react';
+import ReactPlayer from 'react-player';
 import NavBar from '../navbar';
 import { Link, Redirect } from 'react-router-dom';
 import ErrorContainer from '../error_container';
@@ -34,15 +35,23 @@ class VideoShow extends React.Component {
             <div>
                 <NavBar/>
                 <div>
-                    <video 
+                    {/* <video 
                     src={this.props.video.videoUrl}
                     height="500"
                     width="980"
                     controls
                     autoPlay
-                    ></video>
+                    ></video> */}
+                    <ReactPlayer
+                        url={this.props.video.videoUrl}
+                        light={false}
+                        playing= {false}
+                        controls= {true} />
                     <div>
                         <h1>{this.props.video.title}</h1>
+                        <h2>{this.props.video.views} views * {this.props.video.createdAt}</h2>
+                        <h3>{this.props.video.user}</h3>
+                        <h4>{this.props.video.description}</h4>
                     </div>
                 </div>
             </div>
