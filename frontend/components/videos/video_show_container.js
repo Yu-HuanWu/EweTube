@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { fetchVideo } from '../../actions/video_actions';
+import { fetchVideo, updateViews } from '../../actions/video_actions';
 import VideoShow from './video_show';
 
 const mapStateToProps = (state, ownProps) => {
@@ -14,6 +14,7 @@ const mapStateToProps = (state, ownProps) => {
 const mapDispatchToProps = (dispatch) => {
     return({
         fetchVideo: (videoId) => dispatch(fetchVideo(videoId)),
+        updateViews: (video) => dispatch(updateViews(video)),
     })
 }
 

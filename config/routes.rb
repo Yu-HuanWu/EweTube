@@ -6,5 +6,6 @@ Rails.application.routes.draw do
     resources :users
     resources :videos
     resource :session, only: [:create, :destroy]
+    patch '/videos/:id/views', to: 'videos#current_views'
   end
 end

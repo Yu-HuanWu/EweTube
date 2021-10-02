@@ -64,3 +64,11 @@ export const deleteVideo = (videoId) => dispatch => (
         dispatch(receiveVideoErrors(err.responseJSON))
     ))
 )
+
+export const updateViews = (video) => dispatch => (
+    APIUtil.updateViews(video).then(video => (
+        dispatch(receiveVideo(video))
+    ), err => (
+        dispatch(receiveVideoErrors(err.responseJSON))
+    ))
+)

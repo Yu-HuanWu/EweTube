@@ -28,3 +28,11 @@ export const deleteVideo = (videoId) => {
         url: `/api/videos/${videoId}`,
     })
 };
+
+export const updateViews = (video) => {
+    return $.ajax({
+        method: 'PATCH',
+        url: `/api/videos/${video.id}/views`,
+        data: { video },
+    })
+};

@@ -7,6 +7,8 @@ import ErrorContainer from '../error_container';
 class VideoShow extends React.Component {
     constructor(props) {
         super(props);
+        
+        this.handleViews= this.handleViews.bind(this);
     }
 
     componentDidMount() {
@@ -19,6 +21,15 @@ class VideoShow extends React.Component {
         }
     }
 
+    handleViews() {
+        console.log("handleViews");
+        console.log(this.props)
+        this.props.updateViews({
+            views: this.props.video.views + 1,
+            id: this.props.video.id,
+        });
+    }
+
     render() {
         if (this.props.errors.length > 0) {
             console.log("error")
@@ -28,25 +39,27 @@ class VideoShow extends React.Component {
         }
         if (!this.props.video) {
             return null;
-        } else { this.props.video.views += 1;}
+        }
         
         return(
             <div>
                 <NavBar/>
                 <div className="video-show">
-                    {/* <video 
+                    <video 
                     src={this.props.video.videoUrl}
                     height="500"
                     width="980"
                     controls
                     autoPlay
-                    ></video> */}
-                    <ReactPlayer
+                    onEnded= {this.handleViews}
+                    ></video>
+                    {/* <ReactPlayer
                         url={this.props.video.videoUrl}
                         light={false}
                         playing= {false}
                         controls= {true} 
-                        className="video-player"/>
+                        onEnded= {this.handleViews}
+                        className="video-player"/> */}
                     <div className="video-info">
                         <h1>{this.props.video.title}</h1>
                         <h2>{this.props.video.views} views * {this.props.video.createdDate}</h2>
