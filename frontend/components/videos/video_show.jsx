@@ -22,8 +22,6 @@ class VideoShow extends React.Component {
     }
 
     handleViews() {
-        console.log("handleViews");
-        console.log(this.props)
         this.props.updateViews({
             views: this.props.video.views + 1,
             id: this.props.video.id,
@@ -32,7 +30,6 @@ class VideoShow extends React.Component {
 
     render() {
         if (this.props.errors.length > 0) {
-            console.log("error")
             return (
                 <ErrorContainer/>
             )
