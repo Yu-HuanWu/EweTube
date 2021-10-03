@@ -2,6 +2,7 @@ import React from 'react';
 import NavBar from '../navbar';
 import { Link, Redirect } from 'react-router-dom';
 import ErrorContainer from '../error_container';
+import UserPageVideos from '../videos/user_page_videos';
 
 class UserShow extends React.Component {
     constructor(props) {
@@ -16,7 +17,8 @@ class UserShow extends React.Component {
     }
 
     componentDidMount() {
-        this.props.fetchUser(this.props.match.params.userId);
+        this.props.fetchUser(this.props.match.params.userId).then(() => {
+            this.props.fetchVideos();})
     }
 
     componentDidUpdate(prevProp) {
@@ -26,14 +28,13 @@ class UserShow extends React.Component {
     }
 
     toggleTabs(field) {
-        if (field === 'video') {
+        if (field === 'videos') {
             this.setState({
                 [field]: true,
                 about: false,
                 liked: false
             })
         } else if (field === 'about') {
-            console.log("about")
             this.setState({
                 [field]: true,
                 videos: false,
@@ -65,6 +66,10 @@ class UserShow extends React.Component {
             return null;
         }
 
+        // if (!this.props.videos) {
+        //     return null;
+        // }
+
         return (
             <div>
                 <NavBar />
@@ -81,9 +86,13 @@ class UserShow extends React.Component {
                         <li onClick={() => this.toggleTabs('about')} id="show-stats" className={this.state.about ? "toggled" : " "}>About</li>
                         <li onClick={() => this.toggleTabs('liked')} id="show-subs" className={this.state.liked ? "toggled" : " "}>Liked Videos</li>
                     </div>
-
                 </div>
 
+                <div className="user-main-page">
+                    <div className={this.state.videos ? "user-vids" : "hidden"}>
+                        {this.props.videos.length > 0 ? <UserPageVideos allProps={this.props} /> : <h1>This channel has no videos.</h1>}
+                    </div>
+                </div>
             </div>
         )
     }

@@ -51,7 +51,7 @@ class Api::VideosController < ApplicationController
     def current_views
         @video = Video.find(params[:id])
 
-        if @video.update_attributes(params.require(:video).permit(:views))
+        if @video.update(params.require(:video).permit(:views))
             render :show
         else
             render json: ["Cannot update views"], status: 422
@@ -65,7 +65,4 @@ class Api::VideosController < ApplicationController
         params.require(:video).permit(:uploaded_video, :title, :description, :views, :user_id, :thumbnail)
     end
 
-    def video_params_update_views
-        params.require(:video).permit(:views)
-    end
 end

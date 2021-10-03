@@ -7,5 +7,5 @@ json.videoUrl url_for(video.uploaded_video)
 if video.thumbnail.attached?
     json.thumbnail url_for(video.thumbnail)
 else
-    json.thumbnail ""
+    json.thumbnail "testing"
 end

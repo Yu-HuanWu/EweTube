@@ -5,13 +5,19 @@ import { fetchVideos } from '../../actions/video_actions';
 import UserShow from './user_show';
 
 const mapStateToProps = (state, ownProps) => {
-    // let userVideo= [];
-    // if (state.entities.videos.user_id === state.entities.users[ownProps.match.params.userId]) {
-    //     userVideo.push(state.entities.videos)
-    // };
+    let userVideo= [];
+    
+    if (Object.values(state.entities.videos)) {
+        Object.values(state.entities.videos).forEach( video => {
+            if (video.userId == ownProps.match.params.userId) {
+                    userVideo.push(video);
+            };
+        })
+    } else { console.log("no video")}
+    
     return ({
         user: state.entities.users[ownProps.match.params.userId],
-        videos: Object.values(state.entities.videos),
+        videos: userVideo,
         errors: state.errors.user,
     })
 }

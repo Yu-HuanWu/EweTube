@@ -53,13 +53,15 @@ class VideoShow extends React.Component {
                     <ReactPlayer
                         url={this.props.video.videoUrl}
                         light={false}
+                        height={500}
+                        width={980}
                         playing= {false}
                         controls= {true} 
                         onStart= {this.handleViews}
                         className="video-player"/>
                     <div className="video-info">
                         <h1>{this.props.video.title}</h1>
-                        <h2>{this.props.video.views} views * {this.props.video.createdDate}</h2>
+                        <h2>{this.props.video.views} views &#8226; {this.props.video.createdDate}</h2>
                         <div className="video-user-info">
                             <Link to={`/users/${this.props.video.user.id}`}>
                                 <div className="user-avatar" style={{ backgroundColor: this.props.video.user.color }}>
