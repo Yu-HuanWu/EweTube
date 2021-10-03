@@ -20,8 +20,8 @@ export default class UserPageVideos extends React.Component {
                     video.thumbnail = window.defaultThumbnail
                 }
                 return (
-                    <div>
-                        <img id="user-video-images" width="210" height="118" onClick={ () => this.props.allProps.history.push(`/videos/${ video.id }`) } src={ `${ video.thumbnail }` } />
+                    <div className="user-video-show">
+                        <img className="user-video-thumbnail" width="210" height="118" onClick={ () => this.props.allProps.history.push(`/videos/${ video.id }`) } src={ `${ video.thumbnail }` } />
                         <h1>{ video.title }</h1>
                         <div className="uploaded-box-date">
                             <span >{video.views} views &#8226;</span>
