@@ -16,7 +16,7 @@ export default class UserPageVideos extends React.Component {
         let vids;
         if (this.props.allProps.videos.length > 0) {
             vids = this.props.allProps.videos.map(video => {
-                if (video.thumbnail === "testing") {
+                if (video.thumbnail === "none") {
                     video.thumbnail = window.defaultThumbnail
                 }
                 return (
@@ -24,8 +24,8 @@ export default class UserPageVideos extends React.Component {
                         <img id="user-video-images" width="210" height="118" onClick={ () => this.props.allProps.history.push(`/videos/${ video.id }`) } src={ `${ video.thumbnail }` } />
                         <h1>{ video.title }</h1>
                         <div className="uploaded-box-date">
-                            <span id="deets">{video.views} &#8226;</span>
-                            <span id="deets"> {video.createdDate}</span>
+                            <span >{video.views} views &#8226;</span>
+                            <span > {video.createdDate}</span>
                         </div>
                     </div>
                 )

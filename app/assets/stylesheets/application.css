@@ -23,13 +23,16 @@
 
 
     .header {
+        position: -webkit-sticky;
+        position: sticky;
+        top: 0px;
         height: 56px;
         padding: 0 16px;
         display: flex;
         flex-direction: row;
         align-items: center;
         justify-content: space-between;
-        background-color: rgba(33, 33, 33, 0.95);
+        background-color: rgba(33, 33, 33, 1);
     }
 
     .login {
