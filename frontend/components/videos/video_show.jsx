@@ -42,26 +42,32 @@ class VideoShow extends React.Component {
             <div>
                 <NavBar/>
                 <div className="video-show">
-                    <video 
+                    {/* <video 
                     src={this.props.video.videoUrl}
                     height="500"
                     width="980"
                     controls
                     autoPlay
                     onEnded= {this.handleViews}
-                    ></video>
-                    {/* <ReactPlayer
+                    ></video> */}
+                    <ReactPlayer
                         url={this.props.video.videoUrl}
                         light={false}
                         playing= {false}
                         controls= {true} 
-                        onEnded= {this.handleViews}
-                        className="video-player"/> */}
+                        onStart= {this.handleViews}
+                        className="video-player"/>
                     <div className="video-info">
                         <h1>{this.props.video.title}</h1>
                         <h2>{this.props.video.views} views * {this.props.video.createdDate}</h2>
-                        <div className="user-avatar" style={{ backgroundColor: this.props.video.user.color }} >{this.props.video.user.username[0].toUpperCase()}</div>
-                        <h3>{this.props.video.user.username}</h3>
+                        <div className="video-user-info">
+                            <Link to={`/users/${this.props.video.user.id}`}>
+                                <div className="user-avatar" style={{ backgroundColor: this.props.video.user.color }}>
+                                    {this.props.video.user.username[0].toUpperCase()}
+                                </div>
+                            </Link>
+                            <h3><Link to={`/users/${this.props.video.user.id}`}>{this.props.video.user.username}</Link></h3>
+                        </div>
                         <h4>{this.props.video.description}</h4>
                     </div>
                 </div>

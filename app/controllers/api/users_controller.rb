@@ -22,6 +22,11 @@ class Api::UsersController < ApplicationController
 
     def show
         @user = selected_user
+        if (@user)
+            render :show
+        else
+            render json: ['baduser'], status:422
+        end
     end
 
     def index
@@ -41,7 +46,7 @@ class Api::UsersController < ApplicationController
     private
 
     def selected_user
-        User.find(params[:id])
+        User.find_by(id: params[:id])
     end
 
     def user_params
