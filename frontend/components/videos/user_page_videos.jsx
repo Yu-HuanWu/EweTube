@@ -3,13 +3,10 @@ import React from 'react';
 export default class UserPageVideos extends React.Component {
     constructor(props) {
         super(props);
-        // this.toggleVideos = this.toggleVideos.bind(this);
     }
 
     componentDidMount() {
-        // debugger
-        // this.props.fetchUser(this.props.match.params.id);
-        // this.props.fetchVideos();
+        
     }
 
     render() {
@@ -34,7 +31,7 @@ export default class UserPageVideos extends React.Component {
         return (
             <div>
                 <h1 className="user-page-title">Uploads</h1>
-                <div className="all-videos">
+                <div className="all-user-videos">
                     {vids ? vids : "You found the black sheep! It's hiding in the black background!"}
                 </div>
             </div>

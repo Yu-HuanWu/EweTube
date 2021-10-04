@@ -82,9 +82,9 @@ class UserShow extends React.Component {
                     </div>
 
                     <div className="user-header-toggle">
-                        <li onClick={() => this.toggleTabs('videos')} id="show-all-vids" className={this.state.videos ? "toggled" : " "}>Videos</li>
-                        <li onClick={() => this.toggleTabs('about')} id="show-stats" className={this.state.about ? "toggled" : " "}>About</li>
-                        <li onClick={() => this.toggleTabs('liked')} id="show-subs" className={this.state.liked ? "toggled" : " "}>Liked Videos</li>
+                        <li onClick={() => this.toggleTabs('videos')} id="show-all-vids" className={this.state.videos ? "toggled" : " "}>VIDEOS</li>
+                        <li onClick={() => this.toggleTabs('about')} id="show-stats" className={this.state.about ? "toggled" : " "}>ABOUT</li>
+                        <li onClick={() => this.toggleTabs('liked')} id="show-subs" className={this.state.liked ? "toggled" : " "}>LIKED VIDEOS</li>
                     </div>
                 </div>
 

@@ -9,6 +9,7 @@ import { Link } from 'react-router-dom';
 import NavBar from './navbar';
 import VideoShowContainer from './videos/video_show_container';
 import UserShowContainer from './user/user_show_container';
+import MainVideos from './main_videos';
 
 const App = ()=> (
     <div className="body">
@@ -17,7 +18,7 @@ const App = ()=> (
             <Route exact path="/users/:userId" component={UserShowContainer} />
             <AuthRoute exact path="/signup" component={SignupFormContainer} />
             <AuthRoute exact path="/login" component={LoginFormContainer} />
-            <Route exact path="/" component={NavBar} />
+            <Route exact path="/" component={MainVideos} />
             <Route component={ErrorContainer}/>
         </Switch>
     </div>
