@@ -89,8 +89,16 @@ class UserShow extends React.Component {
                 </div>
 
                 <div className="user-main-page">
-                    <div className={this.state.videos ? "user-vids" : "hidden"}>
+                    <div className={this.state.videos ? "user-vidoes" : "hidden"}>
                         {this.props.videos.length > 0 ? <UserPageVideos allProps={this.props} /> : <h1>This channel has no videos.</h1>}
+                    </div>
+                    <div className={this.state.about ? "user-about" : "hidden"}>
+                        <span id="s1">Stats</span>
+                        <span id="s2">{`Joined ${this.props.user.createdDate}`}</span>
+                        <span id="s3">{Math.floor(Math.random() * 607)} sheeps counted</span>
+                    </div>
+                    <div className={this.state.liked ? "user-liked" : "hidden"}>
+                        Liked Video
                     </div>
                 </div>
             </div>

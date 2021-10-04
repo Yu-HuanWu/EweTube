@@ -20,10 +20,10 @@ export default class UserPageVideos extends React.Component {
                     video.thumbnail = window.defaultThumbnail
                 }
                 return (
-                    <div className="user-video-show">
-                        <img className="user-video-thumbnail" width="210" height="118" onClick={ () => this.props.allProps.history.push(`/videos/${ video.id }`) } src={ `${ video.thumbnail }` } />
+                    <div className="user-video-show" onClick={() => this.props.allProps.history.push(`/videos/${video.id}`)}>
+                        <img className="user-video-thumbnail" width="210" height="118" src={ `${ video.thumbnail }` } />
                         <h1>{ video.title }</h1>
-                        <div className="uploaded-box-date">
+                        <div className="video-view-created">
                             <span >{video.views} views &#8226;</span>
                             <span > {video.createdDate}</span>
                         </div>
@@ -33,9 +33,9 @@ export default class UserPageVideos extends React.Component {
         }
         return (
             <div>
-                <h1 className="user-page-title">Videos</h1>
+                <h1 className="user-page-title">Uploads</h1>
                 <div className="all-videos">
-                    {vids ? vids : "Upload videos for them to appear here!"}
+                    {vids ? vids : "You found the black sheep! It's hiding in the black background!"}
                 </div>
             </div>
         )

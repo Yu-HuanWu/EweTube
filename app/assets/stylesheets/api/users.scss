@@ -45,7 +45,7 @@
     list-style: none;
     color: gray;
     li {
-        padding: 13px 32px;
+        padding: 15px 50px;
         vertical-align: middle;
         font-weight: 600;
         font-size: 14px;
@@ -66,19 +66,74 @@
     background-color: black;
     height: 100vh;
     width: 100%;
+    font-family: Arial, Helvetica, sans-serif;
 }
 
-.user-vids > h1 {
+.user-videos > h1 {
     text-align: center;
     padding-top: 20%;
-    font-family: Arial, Helvetica, sans-serif;
     color: white;
 }
 
-.user-video-show img {
+.user-video-show:hover {
     cursor: pointer;
 }
 
+.user-video-show h1 {
+    font-size: 14px;
+    color: white;
+    margin-top: 10px;
+}
+
+.video-view-created {
+    font-size: 12px;
+    color: #AAAAAA;
+    margin-top: 10px;
+}
+
+.user-page-title {
+    font-size: 16px;
+    padding: 20px 40px;
+    color: white;
+}
+
+.all-videos {
+    padding: 0px 40px;
+    height: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+}
+
+
 .hidden {
     display: none;
+}
+
+.user-about {
+    display: flex;
+    flex-direction: column;
+    align-items: end;
+    padding-top: 35px;
+    padding-right: 20px;
+    color: white;
+    #s1 {
+        width: 20%;
+        padding: 15px 0;
+        font-size: 16px;
+        font-weight: bold;
+    }
+    #s2 {
+        width: 20%;
+        padding: 15px 0;
+        border-top: 1px solid rgb(68, 68, 68);
+        font-size: 14px;
+        border-bottom: 1px solid rgb(68, 68, 68);
+    }
+    #s3 {
+        width: 20%;
+        padding: 15px 0;
+        border-bottom: 1px solid rgb(68, 68, 68);
+        font-size: 14px;
+    }
 }

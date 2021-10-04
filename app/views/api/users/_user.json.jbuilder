@@ -1,5 +1,7 @@
 json.extract! user, :username, :id, :color
 
+json.createdDate user.created_at.strftime("%b %d, %Y")
+
 # r = rand(255).to_s(16)
 # g = rand(255).to_s(16)
 # b = rand(255).to_s(16)
