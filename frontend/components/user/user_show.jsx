@@ -89,7 +89,7 @@ class UserShow extends React.Component {
                 </div>
 
                 <div className="user-main-page">
-                    <div className={this.state.videos ? "user-vidoes" : "hidden"}>
+                    <div className={this.state.videos ? "user-videos" : "hidden"}>
                         {this.props.videos.length > 0 ? <UserPageVideos allProps={this.props} /> : <h1>This channel has no videos.</h1>}
                     </div>
                     <div className={this.state.about ? "user-about" : "hidden"}>
