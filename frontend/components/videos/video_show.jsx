@@ -50,15 +50,17 @@ class VideoShow extends React.Component {
                     autoPlay
                     onEnded= {this.handleViews}
                     ></video> */}
-                    <ReactPlayer
-                        url={this.props.video.videoUrl}
-                        light={false}
-                        height={500}
-                        width={980}
-                        playing= {false}
-                        controls= {true} 
-                        onStart= {this.handleViews}
-                        className="video-player"/>
+                    <div className="video-player-div">
+                        <ReactPlayer
+                            url={this.props.video.videoUrl}
+                            light={false}
+                            // height={500}
+                            // width={980}
+                            playing= {false}
+                            controls= {true} 
+                            onStart= {this.handleViews}
+                            className="video-player"/>
+                    </div>
                     <div className="video-info">
                         <h1>{this.props.video.title}</h1>
                         <h2>{this.props.video.views} views &#8226; {this.props.video.createdDate}</h2>

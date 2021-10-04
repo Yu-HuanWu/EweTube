@@ -5,7 +5,8 @@
 .video-info {
     color: white;
     font-family: Arial, Helvetica, sans-serif;
-
+    padding-left: 20px;
+    padding-right: 20px;
 }
 .video-info h1 {
     font-size: 18px;
@@ -18,4 +19,35 @@
     padding-top: 10px;
     padding-bottom: 10px;
     border-bottom: 1px solid rgb(68, 68, 68);
+}
+
+.video-user-info {
+    display: flex;
+    align-items: center;
+    padding-top: 20px;
+    font-size: 14px;
+}
+
+.video-user-info h3 {
+    padding-left: 10px;
+}
+
+.video-info h4 {
+    padding-top: 20px;
+    padding-left: 47px;
+    font-size: 14px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid rgb(68, 68, 68);
+}
+
+.video-player-div {
+    padding-right: 20px;
+    margin-right: 20px;
+}
+.video-player {
+    width: 100%    !important;
+    max-width: 900px;
+    max-height: 506.25px;
+    margin-left: 20px;
+
 }
