@@ -7,34 +7,68 @@ class SideMenu extends React.Component {
         this.state= {
             toggled: false,
         }
+        this.toggleButton=this.toggleButton.bind(this);
     }
 
     toggleButton(e){
         e.preventDefault();
         if (this.state.toggled) {
+
             this.setState({toggled: false})
         } else {
+
             this.setState({toggled: true})
         }
     }
 
     render(){
         let sidemenu;
+        console.log(this.state.toggled)
         if (this.state.toggled){
             sidemenu= (
-                <div>
-                    <h1>test 1</h1>
+                <div className="sidemenu-toggled" >
+                    <div className="toggle-back" onClick={this.toggleButton}></div>
+                    <div className="sidemenu-toggled-side">
+                        <a href="https://github.com/Yu-HuanWu" target="_blank">
+                            <img src={githubURL} alt="github logo but with sheep" />
+                            <h1>GitHub</h1>
+                        </a>
+                        <a href="https://www.linkedin.com/in/yu-huan-wu/" target="_blank">
+                            <img src={linkedinURL} alt="LinkedIn logo but with sheep" />
+                            <h1>LinkedIn</h1>
+                        </a>
+                        <a href="https://donate.worldvision.org/give/sheep" target="_blank">
+                            <img src={charityURL} alt="Give a sheep" />
+                            <h1>Donate a sheep</h1>
+                        </a>
+                    </div>
                 </div>
             )
         } else {
             sidemenu= (
-                <div>
-                    <h1>test 2</h1>
+                <div className="sidemenu-not-toggled">
+                    <div className="sidemenu-not-toggled-icons">
+                        <a href="https://github.com/Yu-HuanWu" target="_blank">
+                            <img src={githubURL} alt="github logo but with sheep" />
+                        </a>
+                        <a href="https://www.linkedin.com/in/yu-huan-wu/" target="_blank">
+                            <img src={linkedinURL} alt="LinkedIn logo but with sheep" />
+                        </a>
+                        <a href="https://donate.worldvision.org/give/sheep" target="_blank">
+                            <img src={charityURL} alt="Give a sheep" />
+                        </a>
+                    </div>
+
                 </div>
             )
         }
         return(
             <div className="sidemenu">
+                <div id="hamburger" onClick={this.toggleButton}>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
                 {sidemenu}
             </div>
         )
