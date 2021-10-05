@@ -4,7 +4,9 @@ Rails.application.routes.draw do
 
   namespace :api, defaults: { format: :json } do 
     resources :users
-    resources :videos
+    resources :videos do
+      resources :comments
+    end
     resource :session, only: [:create, :destroy]
     patch '/videos/:id/views', to: 'videos#current_views'
   end
