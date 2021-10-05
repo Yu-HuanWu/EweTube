@@ -29,6 +29,10 @@ class SideMenu extends React.Component {
                 <div className="sidemenu-toggled" >
                     <div className="toggle-back" onClick={this.toggleButton}></div>
                     <div className="sidemenu-toggled-side">
+                        <Link to="/">
+                            <img src={barnURL} alt="Home but with barn" />
+                            <h1>Home</h1>
+                        </Link>
                         <a href="https://github.com/Yu-HuanWu" target="_blank">
                             <img src={githubURL} alt="github logo but with sheep" />
                             <h1>GitHub</h1>
@@ -48,13 +52,16 @@ class SideMenu extends React.Component {
             sidemenu= (
                 <div className="sidemenu-not-toggled">
                     <div className="sidemenu-not-toggled-icons">
-                        <a href="https://github.com/Yu-HuanWu" target="_blank">
-                            <img src={githubURL} alt="github logo but with sheep" />
+                        <Link to="/" title="Home">
+                            <img src={barnURL} alt="Home but with barn"/>
+                        </Link>
+                        <a href="https://github.com/Yu-HuanWu" target="_blank" title="GitHub">
+                            <img src={githubURL} alt="github logo but with sheep"/>
                         </a>
-                        <a href="https://www.linkedin.com/in/yu-huan-wu/" target="_blank">
-                            <img src={linkedinURL} alt="LinkedIn logo but with sheep" />
+                        <a href="https://www.linkedin.com/in/yu-huan-wu/" target="_blank" title="LinkedIn">
+                            <img src={linkedinURL} alt="LinkedIn logo but with sheep"/>
                         </a>
-                        <a href="https://donate.worldvision.org/give/sheep" target="_blank">
+                        <a href="https://donate.worldvision.org/give/sheep" target="_blank" title="Donate a sheep">
                             <img src={charityURL} alt="Give a sheep" />
                         </a>
                     </div>
