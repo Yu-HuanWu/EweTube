@@ -4,18 +4,18 @@ import CommentIndex from './comment_index';
 
 const mapStateToProps = (state, ownProps) => {
     let videoComments=[]
-    if (Object.values(state.entities.comments)) {
+    console.log("mSTPs")
+    if (Object.values(state.entities.comments)>0) {
         Object.values(state.entities.comments).forEach(comment => {
             if (comment.videoId == ownProps.videoId) {
                 videoComments.push(comment);
             };
         })
     } else { console.log("no comment") }
-
     return ({
         currentUser: state.entities.users[state.session.id],
         comments: videoComments,
-        videoId: ownProps.videoId
+        videoId: ownProps.videoId,
     });
 };
 

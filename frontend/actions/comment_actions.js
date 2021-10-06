@@ -14,11 +14,11 @@ const receiveAllComments = comments => {
 const removeComment = commentId => {
     return {
         type: REMOVE_COMMENT,
-        commentId
+        commentId,
     }
 }
 
-const receiveCommentErrors = errors => {
+const receiveCommentErrors = (errors) => {
     return {
         type: RECEIVE_COMMENT_ERRORS,
         errors,
@@ -27,7 +27,7 @@ const receiveCommentErrors = errors => {
 
 export const createComment = comment => dispatch => (
     APIUtil.createComment(comment).then(comment => (
-        dispatch(receiveAllComments(comments))
+        dispatch(receiveAllComments(comment))
     ), err => (
         dispatch(receiveCommentErrors(err.responseJSON))
     ))

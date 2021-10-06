@@ -6,12 +6,11 @@ export const fetchComments = (videoId) => {
 }
 
 export const createComment = (comment) => {
+    console.log(comment.video_id)
     return $.ajax({
-        method: 'POST',
+        method: "POST",
         url: `/api/videos/${comment.video_id}/comments`,
-        data: comment,
-        contentType: false,
-        processdata: false,
+        data: {comment},
     })
 }
 

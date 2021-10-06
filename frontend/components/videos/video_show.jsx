@@ -3,6 +3,7 @@ import ReactPlayer from 'react-player';
 import NavBar from '../navbar';
 import { Link, Redirect } from 'react-router-dom';
 import ErrorContainer from '../error_container';
+import CommentsContainer from '../comments/comments_container';
 
 class VideoShow extends React.Component {
     constructor(props) {
@@ -75,6 +76,7 @@ class VideoShow extends React.Component {
                         <h4>{this.props.video.description}</h4>
                     </div>
                 </div>
+                <CommentsContainer videoId= {this.props.video.id}/>
             </div>
         )
     }

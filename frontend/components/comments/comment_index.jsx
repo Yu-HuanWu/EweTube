@@ -1,11 +1,13 @@
 import React from 'react';
-import CommentIndexItem from './comment_index_item';
+import CommentIndexItem from './comment_index_item.jsx';
 
 class CommentIndex extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
             body: '',
+            user_id: this.props.currentUser.id,
+            video_id: this.props.videoId,
         }
 
         this.updateComment = this.updateComment.bind(this);
@@ -13,17 +15,31 @@ class CommentIndex extends React.Component {
         this.handleCancel = this.handleCancel.bind(this);
     }
 
-    handleSubmit(e) {
-        e.preventDefault();
-        const formData = new FormData();
-        formData.append('comment[body]', this.state.body);
-        formData.append('comment[user_id]', this.props.currentUser.id);
-        formData.append('comment[video_id]', this.props.videoId);
-        this.props.createComment(formData)
-            .then(this.handleCancel)
+    componentDidMount(){
+        this.props.fetchComments(this.props.videoId)
     }
 
-    handleCancel() {
+    // handleSubmit(e) {
+    //     e.preventDefault();
+    //     const formData = new FormData();
+    //     console.log(this.state.body)
+    //     console.log(this.props.currentUser.id)
+    //     console.log(this.props.videoId)
+    //     formData.append('comments[body]', this.state.body);
+    //     formData.append('comments[user_id]', this.props.currentUser.id);
+    //     formData.append('comments[video_id]', this.props.videoId);
+    //     this.props.createComment(formData)
+    //         .then(this.handleCancel)
+    // }
+
+    handleSubmit(e) {
+        e.preventDefault();
+        const comment = Object.assign({}, this.state);
+        this.props.createComment(comment);
+    }
+
+    handleCancel(e) {
+        e.preventDefault();
         this.setState({
             body: ''
         })
@@ -40,11 +56,11 @@ class CommentIndex extends React.Component {
         let comments = this.props.comments;
         if (!comments) {return null;}
 
-        const form = currentUser ? (
+        let form;
+        if(currentUser) {
+            form= (
             <div className="">
-                <button className="user-avatar">
-                    {currentUser.username[0].toUpperCase()}
-                </button>
+                <p className="user-avatar" style={{ backgroundColor: currentUser.color }}>{currentUser.username[0].toUpperCase()}</p>
                 <form className="" onSubmit={this.handleSubmit}>
                     <label>
                         <input
@@ -64,7 +80,7 @@ class CommentIndex extends React.Component {
                     </div>
                 </form>
             </div>
-        ) : <div></div>
+            )} else {form = (<div></div>)}
         return (
             <div className="comment-container">
                 {form}
