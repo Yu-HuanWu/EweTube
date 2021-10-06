@@ -12,6 +12,8 @@ const receiveAllComments = comments => {
 }
 
 const removeComment = commentId => {
+    console.log("comment action!!!!!")
+    console.log(commentId);
     return {
         type: REMOVE_COMMENT,
         commentId,
@@ -42,8 +44,8 @@ export const fetchComments = videoId => dispatch => (
 )
 
 export const deleteComment= (comment) => dispatch => (
-    APIUtil.deleteComment(comment).then(commentId => (
-        dispatch(removeComment(commentId))
+    APIUtil.deleteComment(comment).then(comment => (
+        dispatch(removeComment(comment.id))
     ), err => (
         dispatch(receiveCommentErrors(err.responseJSON))
     ))

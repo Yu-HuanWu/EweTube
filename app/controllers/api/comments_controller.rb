@@ -1,5 +1,5 @@
 class Api::CommentsController < ApplicationController
-    before_action :require_logged_in
+    before_action :require_logged_in, only: [:create, :destroy, :update]
 
     def index
         @comments = Comment.all
@@ -32,8 +32,9 @@ class Api::CommentsController < ApplicationController
     end
 
     def destroy
-        @comment = Comment.find_by(id: params[:id])
-
+        # @comment = Comment.find_by(id: params[:id])
+        @comment = Comment.find(params[:id])
+        debugger
         if @comment && @comment.user_id == current_user.id
             @comment.destroy
             render json: ["Comment successfully destroyed"]
@@ -45,7 +46,7 @@ class Api::CommentsController < ApplicationController
     private
 
     def comment_params
-        param.require(:comment).permit(:body, :user_id, :video_id)
+        params.require(:comment).permit(:body, :user_id, :video_id)
     end
 
 end

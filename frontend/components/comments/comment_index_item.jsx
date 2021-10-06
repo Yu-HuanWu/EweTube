@@ -9,9 +9,7 @@ const CommentIndexItem = props => {
     return (
         <div className="comment-index-item">
             <div className="comment-info">
-                <button className="user-avatar">
-                    <p>{props.comment.user.username[0].toUpperCase()}</p>
-                </button>
+                <p className="user-avatar" style={{ backgroundColor: props.comment.user.color }}>{props.comment.user.username[0].toUpperCase()}</p>
                 <div className="comment-item-text">
                     <div className="comment-header">
                         <div className="comment-item-username">{props.comment.user.username}</div>

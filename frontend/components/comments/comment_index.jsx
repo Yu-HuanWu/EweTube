@@ -6,7 +6,7 @@ class CommentIndex extends React.Component {
         super(props);
         this.state = {
             body: '',
-            user_id: this.props.currentUser.id,
+            user_id: '',
             video_id: this.props.videoId,
         }
 
@@ -17,25 +17,26 @@ class CommentIndex extends React.Component {
 
     componentDidMount(){
         this.props.fetchComments(this.props.videoId)
+        if(!this.props.currentUser) {return null;}
+        this.setState({
+            user_id: this.props.currentUser.id,
+        })
     }
 
-    // handleSubmit(e) {
-    //     e.preventDefault();
-    //     const formData = new FormData();
-    //     console.log(this.state.body)
-    //     console.log(this.props.currentUser.id)
-    //     console.log(this.props.videoId)
-    //     formData.append('comments[body]', this.state.body);
-    //     formData.append('comments[user_id]', this.props.currentUser.id);
-    //     formData.append('comments[video_id]', this.props.videoId);
-    //     this.props.createComment(formData)
-    //         .then(this.handleCancel)
-    // }
+    componentDidUpdate(prevProp){
+        if ((prevProp.comments.length !== this.props.comments.length)||(prevProp.videoId !== this.props.videoId)){
+            this.props.fetchComments(this.props.videoId);
+            this.handleCancel
+        }
+    }
 
     handleSubmit(e) {
         e.preventDefault();
         const comment = Object.assign({}, this.state);
         this.props.createComment(comment);
+        this.setState({
+            body: ''
+        })
     }
 
     handleCancel(e) {
@@ -47,7 +48,7 @@ class CommentIndex extends React.Component {
 
     updateComment(e) {
         this.setState({
-            body: e.target.value
+            body: e.target.value,
         })
     }
 
@@ -62,7 +63,7 @@ class CommentIndex extends React.Component {
             <div className="">
                 <p className="user-avatar" style={{ backgroundColor: currentUser.color }}>{currentUser.username[0].toUpperCase()}</p>
                 <form className="" onSubmit={this.handleSubmit}>
-                    <label>
+                    <label> Comment
                         <input
                             className=""
                             type="text"

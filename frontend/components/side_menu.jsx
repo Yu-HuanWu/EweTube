@@ -23,7 +23,6 @@ class SideMenu extends React.Component {
 
     render(){
         let sidemenu;
-        console.log(this.state.toggled)
         if (this.state.toggled){
             sidemenu= (
                 <div className="sidemenu-toggled" >

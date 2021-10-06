@@ -13,7 +13,6 @@ class VideosIndex extends React.Component {
 
     render() {
         if (!this.props.videos) {
-            console.log("null")
             return null;
         }
 
