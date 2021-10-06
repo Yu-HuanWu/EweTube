@@ -57,11 +57,3 @@ export const fetchComments = videoId => dispatch => (
         dispatch(receiveCommentErrors(err.responseJSON))
     ))
 )
-
-export const fetchComment = videoId => dispatch => (
-    APIUtil.fetchComment(videoId).then(comment => (
-        dispatch(receiveComment(comment))
-    ), err => (
-        dispatch(receiveCommentErrors(err.responseJSON))
-    ))
-)

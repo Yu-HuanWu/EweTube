@@ -7,7 +7,7 @@ class CommentIndex extends React.Component {
         this.state = {
             body: '',
             user_id: '',
-            video_id: this.props.videoId,
+            video_id: '',
         }
 
         this.updateComment = this.updateComment.bind(this);
@@ -20,16 +20,26 @@ class CommentIndex extends React.Component {
         if(!this.props.currentUser) {return null;}
         this.setState({
             user_id: this.props.currentUser.id,
+            video_id: this.props.videoId,
         })
     }
 
     componentDidUpdate(prevProp){
-        if ((prevProp.comments.length !== this.props.comments.length)||(prevProp.videoId !== this.props.videoId)){
-            this.props.fetchComments(this.props.videoId);
+        console.log(this.props.videoId)
+        console.log(prevProp.videoId)
+        if (this.props.videoId !== prevProp.videoId) {
             this.setState({
-                body: ''
+                body: '',
+                user_id: this.props.currentUser.id,
+                video_id: this.props.videoId,
             })
         }
+        // if ((prevProp.comments.length !== this.props.comments.length)||(prevProp.videoId !== this.props.videoId)){
+        //     this.props.fetchComments(this.props.videoId);
+        //     this.setState({
+        //         body: ''
+        //     })
+        // }
     }
 
     handleSubmit(e) {
