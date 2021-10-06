@@ -6,6 +6,11 @@ class Api::CommentsController < ApplicationController
         render :index
     end
 
+    def show
+        @comment = Comment.find_by(id: params[:id])
+        render :show
+    end
+
     def create
         if params[:comment][:body].empty?
             render json: ["comment cannot be empty"], status: 422
@@ -15,7 +20,7 @@ class Api::CommentsController < ApplicationController
         @comment.user_id = current_user.id
 
         if @comment.save
-            render :index
+            render :show
         else
             render json: ["Cannot post comments"], status: 422
         end
@@ -32,12 +37,11 @@ class Api::CommentsController < ApplicationController
     end
 
     def destroy
-        # @comment = Comment.find_by(id: params[:id])
-        @comment = Comment.find(params[:id])
-        debugger
+        @comment = Comment.find_by(id: params[:id])
+        # @comment = Comment.find(params[:id])
         if @comment && @comment.user_id == current_user.id
             @comment.destroy
-            render json: ["Comment successfully destroyed"]
+            render :show
         else
             render json: ["Cannot delete this comment, please try again later"], status: 403
         end

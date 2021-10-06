@@ -1,4 +1,4 @@
-import { RECEIVE_ALL_COMMENTS, REMOVE_COMMENT } from "../actions/comment_actions";
+import { RECEIVE_ALL_COMMENTS, RECEIVE_COMMENT, REMOVE_COMMENT } from "../actions/comment_actions";
 
 const commentsReducer = (oldState ={}, action) => {
     Object.freeze(oldState);
@@ -8,9 +8,10 @@ const commentsReducer = (oldState ={}, action) => {
             // nextState = action.comments;
             // return nextState;
             return Object.assign({}, action.comments);
+        case RECEIVE_COMMENT:
+            nextState[action.comment.id]= action.comment;
+            return nextState;
         case REMOVE_COMMENT:
-            console.log("COMMENT REDUCER")
-            console.log(action.commentId);
             delete nextState[action.commentId];
             return nextState;
         default:

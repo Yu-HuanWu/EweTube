@@ -26,7 +26,9 @@ class CommentIndex extends React.Component {
     componentDidUpdate(prevProp){
         if ((prevProp.comments.length !== this.props.comments.length)||(prevProp.videoId !== this.props.videoId)){
             this.props.fetchComments(this.props.videoId);
-            this.handleCancel
+            this.setState({
+                body: ''
+            })
         }
     }
 

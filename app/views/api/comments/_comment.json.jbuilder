@@ -1,3 +1,4 @@
+
 json.extract! comment, :id, :body, :video_id, :created_at, :user_id
 
 json.user comment.user

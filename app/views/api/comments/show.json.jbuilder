@@ -1,1 +1,3 @@
-json.partial! "api/comments/comment", comment: @comment
+if !!@comment
+    json.partial! "api/comments/comment", comment: @comment
+end

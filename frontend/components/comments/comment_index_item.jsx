@@ -4,6 +4,8 @@ const CommentIndexItem = props => {
     if (!props.comment) return null;
 
     const handleDelete = () => {
+        console.log('handleDelete')
+        console.log(props.comment.id)
         props.deleteComment(props.comment)
     }
     return (
@@ -19,7 +21,7 @@ const CommentIndexItem = props => {
                 </div>
             </div>
             {(!props.currentUser || props.currentUser.id !== props.comment.userId) ? (
-                <div></div>) : <button className="comment-delete" onClick={handleDelete}>DELETE</button>}
+                <div></div>) : <button className="" onClick={()=>{handleDelete()}}>destroy</button>}
         </div>
     )
 

@@ -1,7 +1,9 @@
 import * as APIUtil from "../util/comment_api_util"
 
 export const RECEIVE_ALL_COMMENTS = 'RECEIVE_ALL_COMMENTS';
-export const REMOVE_COMMENT = 'REMOVE_COMMENT'
+export const RECEIVE_COMMENT =
+'RECEIVE_COMMENT';
+export const REMOVE_COMMENT = 'REMOVE_COMMENT';
 export const RECEIVE_COMMENT_ERRORS = 'RECEIVE_COMMENT_ERRORS';
 
 const receiveAllComments = comments => {
@@ -11,9 +13,14 @@ const receiveAllComments = comments => {
     }
 }
 
+const receiveComment = comment => {
+    return {
+        type: RECEIVE_COMMENT,
+        comment,
+    }
+}
+
 const removeComment = commentId => {
-    console.log("comment action!!!!!")
-    console.log(commentId);
     return {
         type: REMOVE_COMMENT,
         commentId,
@@ -27,9 +34,17 @@ const receiveCommentErrors = (errors) => {
     }
 }
 
+export const deleteComment = (comment) => dispatch => {
+    return  APIUtil.deleteComment(comment).then(comment=> (
+        dispatch(removeComment(comment.id))
+    ), err => (
+        dispatch(receiveCommentErrors(err.responseJSON))
+    ))
+}
+
 export const createComment = comment => dispatch => (
     APIUtil.createComment(comment).then(comment => (
-        dispatch(receiveAllComments(comment))
+        dispatch(receiveComment(comment))
     ), err => (
         dispatch(receiveCommentErrors(err.responseJSON))
     ))
@@ -43,9 +58,9 @@ export const fetchComments = videoId => dispatch => (
     ))
 )
 
-export const deleteComment= (comment) => dispatch => (
-    APIUtil.deleteComment(comment).then(comment => (
-        dispatch(removeComment(comment.id))
+export const fetchComment = videoId => dispatch => (
+    APIUtil.fetchComment(videoId).then(comment => (
+        dispatch(receiveComment(comment))
     ), err => (
         dispatch(receiveCommentErrors(err.responseJSON))
     ))

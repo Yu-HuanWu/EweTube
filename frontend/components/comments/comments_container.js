@@ -19,6 +19,7 @@ const mapStateToProps = (state, ownProps) => {
 };
 
 const mapDispatchToProps = dispatch => {
+    console.log("mDTP")
     return ({
         fetchComments: videoId => dispatch(fetchComments(videoId)),
         createComment: comment => dispatch(createComment(comment)),
