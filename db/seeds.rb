@@ -9,6 +9,7 @@ require 'open-uri'
 
 User.destroy_all
 Video.destroy_all
+Comment.destroy_all
 
 demo = User.create!({username: "Demo McDemoface", password: "DemoUserPassword"})
 pecora = User.create!({username: "Pecora", password: "pecorapassword"})
@@ -34,3 +35,6 @@ tsfanVid2.uploaded_video.attach(io: video3, filename: 'meetingTS')
 thumbnail3= open("https://ewetube-seeds.s3.us-west-1.amazonaws.com/meetingTS.png")
 tsfanVid2.thumbnail.attach(io:thumbnail3, filename: 'meetingTSIMG')
 tsfanVid2.save
+
+comment1= Comment.create!({user_id: pecora.id, video_id: tsfanVid2.id, body: "Taylor Swift is overrated!"})
+comment2= Comment.create!({user_id: tsfan.id, video_id: tsfanVid2.id, body: "How dare you"})
