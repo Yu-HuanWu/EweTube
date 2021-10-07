@@ -7,7 +7,7 @@ export const fetchComments = (videoId) => {
 
 export const createComment = (comment) => {
     return $.ajax({
-        method: "POST",
+        method: 'POST',
         url: `/api/videos/${comment.video_id}/comments`,
         data: {comment},
     })
@@ -21,7 +21,6 @@ export const updateComment = (comment) => {
 }
 
 export const deleteComment = (comment) => {
-    console.log('api util')
     return $.ajax({
         method: 'DELETE',
         url: `/api/videos/${comment.videoId}/comments/${comment.id}`

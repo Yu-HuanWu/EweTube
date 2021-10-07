@@ -4,6 +4,7 @@ import NavBar from '../navbar';
 import { Link, Redirect } from 'react-router-dom';
 import ErrorContainer from '../error_container';
 import CommentsContainer from '../comments/comments_container';
+import LikesIndex from './likes_index';
 
 class VideoShow extends React.Component {
     constructor(props) {
@@ -14,11 +15,13 @@ class VideoShow extends React.Component {
 
     componentDidMount() {
         this.props.fetchVideo(this.props.match.params.videoId);
+        this.props.fetchLikes(this.props.match.params.videoId);
     }
 
     componentDidUpdate(prevProp) {
         if (this.props.match.params.videoId !== prevProp.match.params.videoId) {
             this.props.fetchVideo(this.props.match.params.videoId);
+            this.props.fetchLikes(this.props.match.params.videoId);
         }
     }
 
@@ -35,9 +38,11 @@ class VideoShow extends React.Component {
                 <ErrorContainer/>
             )
         }
-        if (!this.props.video) {
+        if (!this.props.video || !this.props.likes) {
             return null;
         }
+        
+        let likedValue= 0;
         
         return(
             <div>
@@ -63,8 +68,24 @@ class VideoShow extends React.Component {
                             className="video-player"/>
                     </div>
                     <div className="video-info">
-                        <h1>{this.props.video.title}</h1>
-                        <h2>{this.props.video.views} views &#8226; {this.props.video.createdDate}</h2>
+                        <div className="video-info-likes">
+                            <div className="video-title-views">
+                                <h1>{this.props.video.title}</h1>
+                                <h2>{this.props.video.views} views &#8226; {this.props.video.createdDate}</h2>
+                            </div>
+                            <div className="video-likes">
+                                <LikesIndex
+                                    currentUser= {this.props.currentUser}
+                                    likes = {this.props.likes}
+                                    likedValue = {likedValue}
+                                    videoId={this.props.match.params.videoId}
+                                    history = {this.props.history}
+                                    createLike = {this.props.createLike}
+                                    updateLike = {this.props.updateLike}
+                                    deleteLike = {this.props.deleteLike}
+                                />
+                            </div>
+                        </div>
                         <div className="video-user-info">
                             <Link to={`/users/${this.props.video.user.id}`}>
                                 <div className="user-avatar" style={{ backgroundColor: this.props.video.user.color }}>
