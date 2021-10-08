@@ -28,6 +28,7 @@ EweTube is the newest Ovis-themed video streaming site that allows users to shar
 
 * ### Like and dislike videos, liked video is saved on user's page
 ![Likes](app/assets/images/readmelikes.gif)
+
 This feature is possible due to a simple yet effective if-else statement:
 ```
 let likedVideo = [];
