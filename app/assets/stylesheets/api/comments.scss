@@ -3,11 +3,11 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 .comment-info {
+    width: 80vw;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin: 20px;
-    padding-right: 20px;
+    margin-bottom: 20px;
     font-family: Arial, Helvetica, sans-serif;
 }
 
@@ -21,9 +21,99 @@
 }
 .comment-header {
     display: flex;
+    margin-top: 5px;
+
 }
 
 .comment-item-username {
     color: white;
     padding-right: 10px;
+}
+
+.comment-section {
+    margin: 20px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.comment-section h1 {
+    font-size: 16px;
+    color: white;
+    margin-bottom: 30px;
+}
+.comment-container {
+    display: flex;
+}
+
+.comment-input-box {
+    border-width: 0px;
+    border: none;
+    border-bottom: 2px solid rgb(192, 192, 192);
+    height: 40px;
+    width: 400px;
+    background-color: transparent;
+    color: white;
+    font-size: 15px;
+    margin-left: 20px;
+    transition: width 0.4s ease-in-out;
+}
+
+.comment-input-box:focus {
+    background-color:rgba(131, 131, 131, 0.1);
+    width: 80vw;
+    border: none;
+}
+
+.comment-buttons {
+    width: 80vw;
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 10px;
+}
+
+.comment-cancel {
+    background-color: transparent;
+    border: none;
+    border-radius: 5px;
+    width: 100px;
+    height: 40px;
+    margin-right: 10px;
+    color: #AAAAAA;
+    cursor: pointer;
+    transition: 0.4s ease-in-out;
+}
+
+.comment-cancel:hover {
+    background-color: rgba(255, 0, 0, 0.267);
+}
+
+.comment-submit {
+    background-color: #3ea6ff;
+    border: none;
+    border-radius: 5px;
+    width: 100px;
+    height: 40px;
+    color: black;
+    cursor: pointer;
+    transition: 0.3s ease-in-out;
+}
+
+.comment-submit:hover {
+    background-color: #2584d6;
+}
+
+.delete-comment {
+    background-image: image-url('deleteclose');
+    background-color: transparent;
+    border: none;
+    border-radius: 50%;
+    background-size: cover;
+    width: 35px;
+    height: 35px;
+    cursor: pointer;
+    transition: background-color 0.4s ease-in-out; 
+}
+
+.delete-comment:hover {
+    background-image: image-url('deleteopen');
+    background-color: rgba(251, 35, 35, 0.198);
 }

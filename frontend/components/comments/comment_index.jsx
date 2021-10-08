@@ -1,5 +1,6 @@
 import React from 'react';
 import CommentIndexItem from './comment_index_item.jsx';
+import { Link } from 'react-router-dom'
 
 class CommentIndex extends React.Component {
     constructor(props) {
@@ -25,8 +26,6 @@ class CommentIndex extends React.Component {
     }
 
     componentDidUpdate(prevProp){
-        console.log(this.props.videoId)
-        console.log(prevProp.videoId)
         if (this.props.videoId !== prevProp.videoId) {
             this.setState({
                 body: '',
@@ -34,12 +33,6 @@ class CommentIndex extends React.Component {
                 video_id: this.props.videoId,
             })
         }
-        // if ((prevProp.comments.length !== this.props.comments.length)||(prevProp.videoId !== this.props.videoId)){
-        //     this.props.fetchComments(this.props.videoId);
-        //     this.setState({
-        //         body: ''
-        //     })
-        // }
     }
 
     handleSubmit(e) {
@@ -72,30 +65,30 @@ class CommentIndex extends React.Component {
         let form;
         if(currentUser) {
             form= (
-            <div className="">
-                <p className="user-avatar" style={{ backgroundColor: currentUser.color }}>{currentUser.username[0].toUpperCase()}</p>
-                <form className="" onSubmit={this.handleSubmit}>
-                    <label> Comment
+            <div>
+                <h1>{comments.length} Comments</h1>
+                <div className="comment-container">
+                    <Link to={`/users/${currentUser.id}`}>
+                        <p className="user-avatar" style={{ backgroundColor: currentUser.color }}>{currentUser.username[0].toUpperCase()}</p>
+                    </Link>
+                    <form className="comment-form" onSubmit={this.handleSubmit}> 
                         <input
-                            className=""
+                            className="comment-input-box"
                             type="text"
                             placeholder="Add a public comment..."
                             value={this.state.body}
                             onChange={this.updateComment}
-                        />
-                    </label>
-                    <div className="comment-underline">
-                        <div className="comment-emptybox"></div>
-                        <div className="comment-button-container">
+                        />              
+                        <div className="comment-buttons">
                             <button className="comment-cancel" onClick={this.handleCancel}>CANCEL</button>
                             <input className="comment-submit" type="submit" value="COMMENT" />
                         </div>
-                    </div>
-                </form>
+                    </form>
+                </div>    
             </div>
             )} else {form = (<div></div>)}
         return (
-            <div className="comment-container">
+            <div className="comment-section">
                 {form}
                 {comments.map(comment => {
                     if (comment.videoId === this.props.videoId) {

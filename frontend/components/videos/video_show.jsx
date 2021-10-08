@@ -48,13 +48,10 @@ class VideoShow extends React.Component {
             userLikes = Object.values(this.props.likes).filter(like => like.userId === this.props.currentUser.id)
         }
         if (userLikes){
-            console.log(userLikes)
             if (userLikes.length > 0){
                 if (userLikes[0].numLikes === 1) {
-                    console.log('like')
                     likedValue = 1;
                 } else {
-                    console.log('dislike')
                     likedValue = -1;
                 }
             }
@@ -75,8 +72,8 @@ class VideoShow extends React.Component {
                         <ReactPlayer
                             url={this.props.video.videoUrl}
                             light={false}
-                            // height={500}
-                            // width={980}
+                            height={500}
+                            width={800}
                             playing= {false}
                             controls= {true} 
                             onStart= {this.handleViews}

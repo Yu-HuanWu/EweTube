@@ -12,7 +12,7 @@ const mapStateToProps = (state, ownProps) => {
                 videoLikes.push(like);
             };
         })
-    } else { console.log("no comment") }
+    } else { console.log("no likes") }
     return({
         currentUser: state.entities.users[state.session.id],
         video: state.entities.videos[ownProps.match.params.videoId],
