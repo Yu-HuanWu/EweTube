@@ -155,3 +155,10 @@
     font-weight: bold;
     margin-left: 20px;
 }
+
+.navbar {
+    position: -webkit-sticky;
+    position: sticky;
+    top: 0px;
+    z-index: 10;
+}

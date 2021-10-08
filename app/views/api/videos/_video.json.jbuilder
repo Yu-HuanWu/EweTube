@@ -1,4 +1,4 @@
-json.extract! video, :id, :title, :description, :user_id, :views, :created_at, :length
+json.extract! video, :id, :title, :description, :user_id, :views, :created_at
 
 json.user video.user
 json.createdDate video.created_at.strftime("%b %d, %Y")
