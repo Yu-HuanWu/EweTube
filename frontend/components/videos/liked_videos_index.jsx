@@ -2,23 +2,46 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 
-class VideosIndex extends React.Component {
+class LikedVideosIndex extends React.Component {
     constructor(props) {
         super(props);
     }
 
     componentDidMount() {
-        this.props.fetchVideos();
+        this.props.fetchUser(this.props.user.id).then(() => {
+            this.props.fetchVideos().then(()=> {
+                this.props.fetchLikes()
+            });
+        });
+    }
+
+    componentDidUpdate(prevProp) {
+        if (this.props.user.id !== prevProp.user.id) {
+            this.props.fetchUser(this.props.user.id);
+        }
     }
 
     render() {
-        if (!this.props.videos) {
+        if (!this.props.videos || !this.props.user) {
             return null;
         }
 
-        let vids;
+        let likedVideo = [];
         if (this.props.videos.length > 0) {
-            vids = this.props.videos.map(video => {
+            Object.values(this.props.videos).forEach(video => {
+                if (this.props.likes) {
+                   this.props.likes.forEach(like => {
+                       if (like.videoId === video.id && like.numLikes === 1) {
+                           likedVideo.push(video);
+                       }
+                   })
+                }
+            })
+        }
+
+        let vids;
+        if (likedVideo.length > 0) {
+            vids = likedVideo.map(video => {
                 if (video.thumbnail === "none") {
                     video.thumbnail = window.defaultThumbnail
                 }
@@ -46,13 +69,13 @@ class VideosIndex extends React.Component {
         }
         return (
             <div>
-                <h1 className="user-page-title">Trending Videos</h1>
+                <h1 className="user-page-title">Videos liked by {this.props.user.username}</h1>
                 <div className="all-videos">
-                    {vids ? vids : "You found the black sheep! It's hiding in the black background!"}
+                    {vids ? vids : <h2>{this.props.user.username} has not liked any videos yet</h2>}
                 </div>
             </div>
         )
     }
 }
 
-export default VideosIndex
+export default LikedVideosIndex

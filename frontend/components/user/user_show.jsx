@@ -4,6 +4,7 @@ import { Link, Redirect } from 'react-router-dom';
 import ErrorContainer from '../error_container';
 import UserPageVideos from '../videos/user_page_videos';
 import SideMenu from '../side_menu';
+import LikedVideosIndexContainer from '../videos/liked_videos_index_container';
 
 class UserShow extends React.Component {
     constructor(props) {
@@ -101,7 +102,7 @@ class UserShow extends React.Component {
                             <span id="s3">{Math.floor(Math.random() * 607)} sheeps counted</span>
                         </div>
                         <div className={this.state.liked ? "user-liked" : "hidden"}>
-                            Liked Video
+                            <LikedVideosIndexContainer user={this.props.user}/>
                         </div>
                     </div>
                 </div> 
