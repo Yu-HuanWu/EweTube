@@ -3,7 +3,7 @@
 
 ## Background
 
-EweTube is the newest Ovis-themed video streaming site that allows users to share sheep-friendly videos with one another. Users create accounts as well as comment on, like, dislike videos across the site. Users will also be able to view videos liked by themselves or other users. 
+[EweTube](https://ewetube.herokuapp.com/#/) is the newest Ovis-themed video streaming site that allows users to share sheep-friendly videos with one another. Users create accounts as well as comment on, like, dislike videos across the site. Users will also be able to view videos liked by themselves or other users. 
 
 ## Technologies
 
