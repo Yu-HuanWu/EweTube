@@ -23,5 +23,8 @@ EweTube is the newest Ovis-themed video streaming site that allows users to shar
 * ### User account creation and login
 ![Login](app/assets/images/readmelogin.gif)
 
-* ### Post and delete comments on video
+* ### Post and delete comments on videos
 ![Comment](app/assets/images/readmecomment.gif)
+
+* ### Like and dislike videos, liked video is saved on user's page
+![Likes](app/assets/images/readmelikes.gif)
