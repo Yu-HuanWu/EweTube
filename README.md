@@ -8,9 +8,13 @@ EweTube is the newest Ovis-themed video streaming site that allows users to shar
 ## Technologies
 
 :sheep: Ruby on Rails
+
 :sheep: React/Redux
+
 :sheep: PostgreSQL
+
 :sheep: JavaScript / AJAX / JBuilder
+
 :sheep: HTML5 / CSS
 
 
