@@ -44,3 +44,8 @@ if (this.props.videos.length > 0) {
     })
 }
 ```
+
+## Upcoming Features
+
+* Search bar
+* Video upload
