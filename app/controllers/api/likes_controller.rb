@@ -1,8 +1,15 @@
 class Api::LikesController < ApplicationController
 
     def index
-        video = Video.find_by(params[:video_id])
-        @likes = video.likes
+        # video = Video.find_by(id: params[:video_id])
+        # if video
+        #     @likes = video.likes
+        #     render :index
+        # end
+        @likes = Like.all
+        if (params[:video_id])
+            @likes = @likes.where(video_id: params[:video_id])
+        end
         render :index
     end
 

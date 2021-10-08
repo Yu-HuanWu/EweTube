@@ -43,7 +43,22 @@ class VideoShow extends React.Component {
         }
         
         let likedValue= 0;
-        
+        let userLikes;
+        if (this.props.currentUser) {
+            userLikes = Object.values(this.props.likes).filter(like => like.userId === this.props.currentUser.id)
+        }
+        if (userLikes){
+            console.log(userLikes)
+            if (userLikes.length > 0){
+                if (userLikes[0].numLikes === 1) {
+                    console.log('like')
+                    likedValue = 1;
+                } else {
+                    console.log('dislike')
+                    likedValue = -1;
+                }
+            }
+        }
         return(
             <div>
                 <NavBar/>

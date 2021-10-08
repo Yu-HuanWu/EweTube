@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const CommentIndexItem = props => {
     if (!props.comment) return null;
@@ -11,17 +12,25 @@ const CommentIndexItem = props => {
     return (
         <div className="comment-index-item">
             <div className="comment-info">
-                <p className="user-avatar" style={{ backgroundColor: props.comment.user.color }}>{props.comment.user.username[0].toUpperCase()}</p>
-                <div className="comment-item-text">
-                    <div className="comment-header">
-                        <div className="comment-item-username">{props.comment.user.username}</div>
-                        <div id="comment-item-date">{props.comment.createdDate}</div>
-                    </div>
-                    <div className="comment-item-body">{props.comment.body}</div>
+                <div>
+                    <Link to={`/users/${props.comment.user.id}`}>
+                        <p className="user-avatar" style={{ backgroundColor: props.comment.user.color }}>{props.comment.user.username[0].toUpperCase()}</p>
+                    </Link>
+                    <div className="comment-item-text">
+                        <div className="comment-header">
+                            <div className="comment-item-username">
+                                <Link to={`/users/${props.comment.user.id}`}>
+                                {props.comment.user.username}
+                                </Link>
+                            </div>
+                            <div id="comment-item-date">{props.comment.createdDate}</div>
+                        </div>
+                        <div className="comment-item-body">{props.comment.body}</div>
+                    </div> 
                 </div>
+                {(!props.currentUser || props.currentUser.id !== props.comment.userId) ? (
+                    <div></div>) : <button className="" onClick={()=>{handleDelete()}}>Delete</button>}
             </div>
-            {(!props.currentUser || props.currentUser.id !== props.comment.userId) ? (
-                <div></div>) : <button className="" onClick={()=>{handleDelete()}}>destroy</button>}
         </div>
     )
 

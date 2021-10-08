@@ -5,10 +5,18 @@ import { fetchLikes, createLike, updateLike, deleteLike  } from '../../actions/l
 import VideoShow from './video_show';
 
 const mapStateToProps = (state, ownProps) => {
+    let videoLikes = []
+    if (Object.values(state.entities.likes)) {
+        Object.values(state.entities.likes).forEach(like => {
+            if (like.videoId == ownProps.match.params.videoId) {
+                videoLikes.push(like);
+            };
+        })
+    } else { console.log("no comment") }
     return({
         currentUser: state.entities.users[state.session.id],
         video: state.entities.videos[ownProps.match.params.videoId],
-        likes: state.entities.likes,
+        likes: videoLikes,
         errors: state.errors.video,
     })
 }

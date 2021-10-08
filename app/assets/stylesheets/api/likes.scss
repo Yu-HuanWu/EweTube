@@ -1,3 +1,42 @@
 // Place all the styles related to the api/likes controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.like-button {
+    width: 30px;
+}
+
+.unclicked {
+    color: #AAAAAA;
+}
+
+.clicked-like {
+    color: #41c708;
+}
+
+.clicked-dislike {
+    color: #fd1a1a;
+}
+
+.like-dislike {
+    display: flex;
+    justify-content: space-around;
+    align-items:stretch;
+}
+
+.like-dislike button {
+    background-color: transparent;
+    border: none;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    color: white;
+    cursor: pointer;
+    padding-bottom: 10px;
+    transition: .25s ease-in-out;
+}
+
+.like-dislike button:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+    border-radius: 45%;
+}

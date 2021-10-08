@@ -7,6 +7,7 @@
     font-family: Arial, Helvetica, sans-serif;
     padding-left: 20px;
     padding-right: 20px;
+    
 }
 .video-info h1 {
     font-size: 18px;
@@ -18,7 +19,19 @@
     color: #AAAAAA;
     padding-top: 10px;
     padding-bottom: 10px;
+}
+
+.video-info-likes {
     border-bottom: 1px solid rgb(68, 68, 68);
+    display: flex;
+    justify-content: space-between;
+}
+
+.video-likes {
+    display: flex;
+    align-items: flex-end;
+    margin-right: 20px;
+    border-bottom: 2px solid rgb(251, 251, 251);
 }
 
 .video-user-info {
