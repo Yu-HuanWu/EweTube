@@ -45,6 +45,9 @@ if (this.props.videos.length > 0) {
 }
 ```
 
+* ### Video views get updated upon playing
+![Views](app/assets/images/readmeviewupdate.gif)
+
 ## Upcoming Features
 
 * Search bar
