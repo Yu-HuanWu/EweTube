@@ -4,6 +4,14 @@
     <title>Ewetube</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
+    <meta property="og:title" content="EweTube" />
+    <meta property='og:image' content="<%= image_url('ewetube.png') %>"/>
+    <meta property="og:description"
+       content="A sheep themed Youtube Clone."
+     />
+    <meta property="og:url"
+       content="https://ewetube.herokuapp.com/"
+     />
     <script type="text/javascript">
       window.logoURL = "<%= image_url('ewetubelogo.svg') %>";
       window.logoblackURL = "<%= image_url('ewetubelogoblack.svg') %>";
