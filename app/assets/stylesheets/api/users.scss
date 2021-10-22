@@ -141,3 +141,23 @@
         font-size: 14px;
     }
 }
+
+@media screen and (max-width: 800px) {
+    .user-header-toggle {
+        li {
+            padding: 15px 20px;
+        }
+    }
+
+    .user-about {
+        #s1 {
+            width: 40%;
+        }
+        #s2 {
+            width: 40%;
+        }
+        #s3 {
+            width: 40%;
+        }
+    }
+}

@@ -3,7 +3,7 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 .comment-info {
-    width: 80vw;
+    width: 65vw;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -45,8 +45,14 @@
     color: white;
     margin-bottom: 30px;
 }
+
 .comment-container {
     display: flex;
+    width: 10%;
+}
+
+.comment-form {
+    width: 50%;
 }
 
 .comment-input-box {
@@ -64,12 +70,12 @@
 
 .comment-input-box:focus {
     background-color:rgba(131, 131, 131, 0.1);
-    width: 80vw;
+    width: 50vw;
     border: none;
 }
 
 .comment-buttons {
-    width: 80vw;
+    width: 65vw;
     display: flex;
     justify-content: flex-end;
     margin-top: 10px;
@@ -121,4 +127,19 @@
 .delete-comment:hover {
     background-image: image-url('deleteopen');
     background-color: rgba(251, 35, 35, 0.198);
+}
+
+@media only screen and (max-width: 800px) {
+    .comment-input-box {
+        width: 40vw;
+    }
+
+    .comment-buttons {
+        margin-bottom: 20px;
+    }
+
+    .comment-info {
+        width: 80vw;
+        
+    }
 }

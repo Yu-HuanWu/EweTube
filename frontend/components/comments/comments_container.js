@@ -20,6 +20,7 @@ const mapStateToProps = (state, ownProps) => {
 
 const mapDispatchToProps = dispatch => {
     return ({
+        fetchVideo: (videoId) => dispatch(fetchVideo(videoId)),
         fetchComments: videoId => dispatch(fetchComments(videoId)),
         createComment: comment => dispatch(createComment(comment)),
         deleteComment: comment => dispatch(deleteComment(comment)),

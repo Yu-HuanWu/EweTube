@@ -25,7 +25,7 @@ class VideosIndex extends React.Component {
                 return (
                     <div key={video.id} className="index-video-show">
                         <Link to={`/videos/${video.id}`}>
-                            <img className="user-video-thumbnail" width="210" height="118" src={video.thumbnail} />
+                            <img className="user-video-thumbnail" src={video.thumbnail} />
                         </Link>
                         <div className="index-video-info">
                             <Link to={`/users/${video.user.id}`}><p className="user-avatar" style={{ backgroundColor: video.user.color }}>{video.user.username[0].toUpperCase()}</p></Link>

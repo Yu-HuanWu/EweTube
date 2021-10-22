@@ -29,7 +29,7 @@ class CommentIndex extends React.Component {
         if (this.props.videoId !== prevProp.videoId) {
             this.setState({
                 body: '',
-                user_id: this.props.currentUser.id,
+                // user_id: this.props.currentUser.id,
                 video_id: this.props.videoId,
             })
         }

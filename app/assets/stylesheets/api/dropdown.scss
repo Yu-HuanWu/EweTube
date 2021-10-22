@@ -15,10 +15,6 @@
         display: block;
     }
 
-    .dropdown-content div {
-
-    }
-
     .dropdown-selection div{
         display: flex;
         padding: 15px;
@@ -65,3 +61,11 @@
         height: 25px;
         padding-right: 10px;
     }
+
+@media screen and (max-width: 800px) {
+    .dropdown-content {
+        display: none;
+        margin-left: -215px;
+    }
+
+}
