@@ -105,3 +105,19 @@
     font-weight: 500;
     margin-top: -2%;
 }
+
+@media screen and (max-width: 800px) {
+    .form-box{ 
+        position: absolute;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        min-height: 410px;
+        padding: 10px 10px 40px;
+        border-radius: 8px;
+        border: 1px solid #dadce0;
+        width: 350px;
+        font-family: 'Google Sans','Noto Sans Myanmar UI',arial,sans-serif;
+    }
+}
