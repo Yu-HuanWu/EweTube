@@ -65,8 +65,6 @@
     margin-top: 15px;
 }
 .video-player {
-    // width: 100%    !important;
-    // height: auto    !important;
     width: 65vw !important;
     margin-left: 20px;
 
@@ -80,27 +78,26 @@
 }
 
 .all-videos {
-    // padding: 0px 2em;
     height: 100%;
     width: calc(100%-72px-2em);
-    // display: flex;
-    // flex-wrap: wrap;
-    // justify-content: flex-start;
     display: grid;
     justify-content: center;
     grid-template-columns: repeat(auto-fill, 240px);
-    // margin: auto auto;
     font-family:Arial, Helvetica, sans-serif
 }
 
 .index-video-show {
+    width: 95%;
     padding-bottom: 20px;
+    margin: 0 auto;
 }
 
 .index-video-info {
     display: flex;
-    width: 210px;
+    width: 100%;
     margin-top: 5px;
+    overflow: hidden;
+    text-overflow: ellipsis; 
 }
 
 .index-video-info p {
@@ -111,10 +108,8 @@
     margin-left: 10px;
     font-size: 14px;
     color: #AAAAAA;
-    // white-space: nowrap; 
-    // width: 50px; 
-    // overflow: hidden;
-    // text-overflow: ellipsis; 
+    overflow: hidden;
+    text-overflow: ellipsis; 
 }
 
 .index-video-info-side h1 {
@@ -133,7 +128,6 @@
     justify-content: space-evenly;
     height: 100%;
     width: 100%;
-    // margin-left: 50px;
 }
 
 .video-show {
@@ -141,17 +135,14 @@
 }
 
 .video-index-side {
-    width: calc(30%-2em);
-    min-width: 300px;
-    // height: 900px;
-    // overflow-y: scroll;
-    overflow-x: visible;
+    width: calc(30%-1em);
+    width: 29%;
 }
 
 .side-video-show {
     display: flex;
     margin: 5px;
-    text-overflow: ellipsis;
+    width: 100%;
 
     .user-video-thumbnail {
         width: 168px;
@@ -160,17 +151,12 @@
 }
 
 .all-side-videos {
-    // padding: 0px 2em;
     height: 100%;
-    width: calc(100%-72px-2em);
-    // display: flex;
-    // flex-wrap: wrap;
-    // justify-content: flex-start;
+    width: 100%;
     display: grid;
     justify-content: flex-start;
-    grid-template-columns: repeat(auto-fill, 240px);
-    // margin: auto auto;
-    font-family:Arial, Helvetica, sans-serif
+    grid-template-columns: repeat(auto-fill, 100%);
+    font-family:Arial, Helvetica, sans-serif;
 }
 
 @media screen and (max-width: 800px) {
@@ -237,8 +223,18 @@
         font-size: 14px;
     }
 
+    .all-side-videos {
+        height: 100%;
+        width: calc(100%-72px-2em);
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        font-family:Arial, Helvetica, sans-serif
+    }
+
     .video-index-side {
         width: 95%;
+        margin: 0 auto;
         overflow-y: visible;
         overflow-x: visible;
 
@@ -249,9 +245,12 @@
 
         .side-video-show {
             display: flex;
+            justify-content: center;
             margin: 0px;
+            padding-bottom: 10px;
             width: 100%;
             text-overflow: ellipsis;
+            margin: 0 auto;
         }
 
         .index-video-info {
