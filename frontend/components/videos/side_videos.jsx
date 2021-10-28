@@ -46,7 +46,7 @@ class SideVideos extends React.Component {
         return (
             <div>
                 <h1 className="user-page-title">Most viewed</h1>
-                <div className="all-videos">
+                <div className="all-side-videos">
                     {vids ? vids : "You found the black sheep! It's hiding in the black background!"}
                 </div>
             </div>

@@ -106,7 +106,7 @@ class VideoShow extends React.Component {
                             </div>
                             <h4>{this.props.video.description}</h4>
                         </div>
-                    <CommentsContainer videoId= {this.props.video.id}/>
+                        <CommentsContainer videoId= {this.props.video.id}/>
                     </div>
                     <div className="video-index-side">
                         <SideVideosContainer/>
