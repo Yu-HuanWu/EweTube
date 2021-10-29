@@ -52,7 +52,7 @@ class NavBar extends React.Component {
                     <form className="search-container" onSubmit={this.handleSearch} >
                         <input className="search-bar" type="text" placeholder="Search" value={this.state.searchquery} onChange={this.update} />
                             <button className="search-button" type="submit">
-                                🔍
+                                <img src={searchURL} width="28px"/>
                             </button>
                     </form>
                     <GreetingContainer />

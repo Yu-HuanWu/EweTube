@@ -224,9 +224,17 @@
     cursor: pointer;
     transition: all 0.1s ease-in-out;
     margin-right: 10px;
+    
+    img {
+        opacity: 0.7;
+    }
 
     &:hover {
         background: rgb(85, 85, 85);
+
+        img {
+            opacity: 1;
+        }
     }
 }
 
