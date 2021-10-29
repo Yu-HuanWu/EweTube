@@ -159,6 +159,61 @@
     font-family:Arial, Helvetica, sans-serif;
 }
 
+.all-search-videos {
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+    margin-left: 15%;
+    justify-content: center;
+    align-items: flex-start;
+    font-family:Arial, Helvetica, sans-serif;
+
+    .user-video-show {
+        display: flex;
+        flex-direction: row;
+        width: 90%;
+        padding: 10px;
+        transition: background-color 0.2s ease-in-out;
+
+        .search-video-thumbnail {
+            width: 360px;
+            min-width: 360px;
+            height: 202px;
+        }
+
+        .search-video-info {
+            display: flex;
+            flex-direction: column;
+            width: calc(100%-360px);
+            overflow: hidden;
+            text-overflow: ellipsis;
+            padding-left: 25px;
+
+            h1 {
+                font-size: 18px;
+            }
+
+            h2 {
+                margin: auto 0;
+            }
+
+            a {
+                display: flex;
+                margin-top: 10px;
+                
+                .user-avatar {
+                    margin-right: 10px;
+                }
+            }
+        }
+        &:hover {
+            background-color: #232323;
+            border-radius: 5px;
+            
+        }
+    }
+}
+
 @media screen and (max-width: 800px) {
     
     .video-show-page {
@@ -262,6 +317,51 @@
         .index-video-view-created {
             display: flex;
             flex-direction: column;
+        }
+    }
+
+    .all-search-videos {
+        display: flex;
+        flex-direction: column;
+        width: 80%;
+        margin-left: 15%;
+        justify-content: center;
+        align-items: flex-start;
+        font-family:Arial, Helvetica, sans-serif;
+
+        .user-video-show {
+            display: flex;
+            flex-direction: column;
+            width: 90%;
+            padding: 10px;
+
+            .search-video-thumbnail {
+                width: 210px;
+                min-width: 210px;
+                height: 118px;
+            }
+
+            .search-video-info {
+                display: flex;
+                flex-direction: column;
+                width: calc(100%-360px);
+                overflow: hidden;
+                text-overflow: ellipsis;
+                padding-left: 0;
+
+                a {
+                    display: flex;
+                    margin-top: 10px;
+                    
+                    .user-avatar {
+                        margin-right: 10px;
+                    }
+                }
+            }
+
+            &:hover {
+                background-color: #333333;
+            }
         }
     }
 }

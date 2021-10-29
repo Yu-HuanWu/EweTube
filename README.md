@@ -56,6 +56,9 @@ if (this.props.videos.length > 0) {
 ## Special Thanks
 
 * StackOverflow
+* John F
 * Jon Z
 * Vern C
 * Masa C
+* Darrick S
+* Jimmy K

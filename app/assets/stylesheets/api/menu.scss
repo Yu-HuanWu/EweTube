@@ -176,3 +176,80 @@
     background-color: #202020;
     border-bottom: 1px solid rgb(68, 68, 68);
 }
+
+.search-container {
+    font-family: Arial, Helvetica, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 0px;
+    height: 90%;
+    width: 60%;
+    input {
+        &:focus {
+            border: 1px solid rgb(31, 104, 238);
+        }
+    }
+}
+
+.search-bar {
+    display: flex;
+    flex-direction: row;
+    width: 90%;
+    color: rgb(120,120,120);
+    font-size: 16px;
+    padding-left: 15px;
+    background: rgb(20, 20, 20);
+    height: 70%;
+    border-top-style: hidden;
+    border-right-style: hidden;
+    border-left-style: hidden;
+    border-bottom-style: hidden;
+    outline: none;
+    border: 1px solid rgb(50, 50, 50);
+    // border-color: rgb(50, 50, 50);
+    border-radius: 2px;
+}
+
+
+.search-button {
+    background: rgb(50, 50, 50);
+    width: 64px;
+    height: 75%;
+    border: 1px solid;
+    border-color: rgb(50, 50, 50);
+    border-radius: 2px;
+    border-top-left-radius: 0px;
+    border-bottom-left-radius: 0px;
+    cursor: pointer;
+    transition: all 0.1s ease-in-out;
+    margin-right: 10px;
+
+    &:hover {
+        background: rgb(85, 85, 85);
+    }
+}
+
+@media screen and (max-width: 800px)  {
+    .sidemenu {
+        position: fixed;
+        height: 100%;
+        width: 72px !important;
+        background-color: #212121;
+        z-index: 6;
+    }
+
+    .header {
+        padding: 0;
+        .logo {
+            height: 23px;
+            width: 96px;
+            padding: 0px 0px 0px 0px;
+        }
+    }
+
+    .search-container {
+        margin-left: 5px;
+    }
+
+}

@@ -17,7 +17,7 @@ const App = ()=> (
         <Switch>
             <Route exact path="/videos/:videoId" component={VideoShowContainer}/>
             <Route exact path="/users/:userId" component={UserShowContainer} />
-            <Route exact path="/search" component={SearchedVideos} />
+            <Route path="/search/:searchQuery" component={SearchedVideos} />
             <AuthRoute exact path="/signup" component={SignupFormContainer} />
             <AuthRoute exact path="/login" component={LoginFormContainer} />
             <Route exact path="/" component={MainVideos} />

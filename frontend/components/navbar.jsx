@@ -36,24 +36,11 @@ class NavBar extends React.Component {
 
     handleSearch(e) {
         e.preventDefault();
-        // this.props.fetchVideos();
-        let filteredVideos;
-        console.log(this.props.videos);
-        if (this.state.searchquery.length >= 1) {
-            filteredVideos= this.props.videos.filter(video => {
-                return video.title.toLowerCase().includes(this.state.searchquery.toLowerCase()) || 
-                video.description.toLowerCase().includes(this.state.searchquery.toLowerCase()) ||
-                video.user.username.toLowerCase().includes(this.state.searchquery.toLowerCase())
-            })
-        }
-        console.log(filteredVideos)
 
-        if (!!filteredVideos) {
+        if (this.state.searchquery.length > 0) {
             this.props.history.push({
-                pathname: '/search',
-                videos: filteredVideos
+                pathname: `/search/${this.state.searchquery}`
             })
-            // <Redirect to="/search" videos={filteredVideos} />
         }
     }
 
