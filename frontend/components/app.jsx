@@ -10,12 +10,14 @@ import NavBar from './navbar';
 import VideoShowContainer from './videos/video_show_container';
 import UserShowContainer from './user/user_show_container';
 import MainVideos from './main_videos';
+import SearchedVideos from './searched_videos';
 
 const App = ()=> (
     <div className="body">
         <Switch>
             <Route exact path="/videos/:videoId" component={VideoShowContainer}/>
             <Route exact path="/users/:userId" component={UserShowContainer} />
+            <Route exact path="/search" component={SearchedVideos} />
             <AuthRoute exact path="/signup" component={SignupFormContainer} />
             <AuthRoute exact path="/login" component={LoginFormContainer} />
             <Route exact path="/" component={MainVideos} />

@@ -52,3 +52,10 @@ if (this.props.videos.length > 0) {
 
 * Search bar
 * Video upload
+
+## Special Thanks
+
+* StackOverflow
+* Jon Z
+* Vern C
+* Masa C

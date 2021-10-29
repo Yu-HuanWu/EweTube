@@ -58,6 +58,16 @@ class Api::VideosController < ApplicationController
         end
     end
 
+    def search
+        if params[:query].present?
+            @videos = Video.where('LOWER(title) ~ ?', params[:query].downcase)
+        else
+            @videos = Video.none
+        end
+
+        render :index
+    end
+
 
     private
 
