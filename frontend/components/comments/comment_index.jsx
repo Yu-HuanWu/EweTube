@@ -72,13 +72,19 @@ class CommentIndex extends React.Component {
                         <p className="user-avatar" style={{ backgroundColor: currentUser.color }}>{currentUser.username[0].toUpperCase()}</p>
                     </Link>
                     <form className="comment-form" onSubmit={this.handleSubmit}> 
-                        <input
+                        {/* <input
                             className="comment-input-box"
                             type="text"
                             placeholder="Add a public comment..."
                             value={this.state.body}
                             onChange={this.updateComment}
-                        />              
+                        /> */}
+                        <textarea
+                            className="comment-input-box"
+                            placeholder="Add a public comment..."
+                            value={this.state.body}
+                            onChange={this.updateComment}
+                        />
                         <div className="comment-buttons">
                             <button className="comment-cancel" onClick={this.handleCancel}>CANCEL</button>
                             <input className="comment-submit" type="submit" value="COMMENT" />
