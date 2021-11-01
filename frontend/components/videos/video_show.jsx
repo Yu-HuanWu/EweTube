@@ -72,7 +72,7 @@ class VideoShow extends React.Component {
                             <ReactPlayer
                                 url={this.props.video.videoUrl}
                                 light={false}
-                                playing= {false}
+                                playing= {true}
                                 controls= {true} 
                                 onStart= {this.handleViews}
                                 className="video-player"/>
