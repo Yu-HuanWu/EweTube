@@ -30,7 +30,7 @@ class SessionForm extends React.Component {
 
         if (this.props.formType=== "Login"){
             return(
-                <input type="submit" onClick={this.demoLogin} value="Demo Login" />
+                <input type="submit" onClick={this.demoLogin} value="Demo Login" className="demo"/>
             )
         } 
     }
@@ -71,7 +71,7 @@ class SessionForm extends React.Component {
         };
 
         let errors = this.state.errors.map((el, idx) => {
-            return <li key={idx}>{el}</li>
+            return <li key={idx} className="error">{el}</li>
         })
 
         return (
