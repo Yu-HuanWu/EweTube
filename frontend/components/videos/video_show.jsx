@@ -62,12 +62,6 @@ class VideoShow extends React.Component {
                 <NavBar/>
                 <div className="video-show-page">
                     <div className="video-show">
-                        {/* <video 
-                        src={this.props.video.videoUrl}
-                        controls
-                        autoPlay
-                        onEnded= {this.handleViews}
-                        ></video> */}
                         <div className="video-player-div">
                             <ReactPlayer
                                 url={this.props.video.videoUrl}
